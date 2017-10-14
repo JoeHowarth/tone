@@ -4,6 +4,7 @@ from pprint import pprint
 import time
 import numpy as np
 import pickle
+import json
 
 def matchSong(vec):
     # if not SongMatrix:
@@ -19,6 +20,8 @@ def matchSong(vec):
     songID = closest_match[1]
 
     response_dict = {"title": song_ID[0], "artist": song_ID[1], "song_ID": song_ID[2], "vol":vec[2]}
+    with open('result.json', 'w') as fp:
+        json.dump(response_dict, fp)
 
     return response_dict
 
