@@ -68,13 +68,13 @@ def shift_vec(vec):
 # ]
 
 
-
-
-
-if len(sys.argv) > 1:
-    x = int(sys.argv[1])
-    y = int(sys.argv[2])
-    z = int(sys.argv[3])
-    [x,y,z]
-    a = matchSong([x,y,z])
-    # print(a)
+matchSong("s")
+#
+#
+# if len(sys.argv) > 1:
+#     x = int(sys.argv[1])
+#     y = int(sys.argv[2])
+#     z = int(sys.argv[3])
+#     [x,y,z]
+#     a = matchSong([x,y,z])
+#     # print(a)
