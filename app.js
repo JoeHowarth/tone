@@ -22,24 +22,24 @@ process.env["GOOGLE_APPLICATION_CREDENTIALS"] = config[2];
 
 var getRawBody = require('raw-body')
 
-app.use(function (req, res, next) {
-    if (req.headers['content-type'] === 'application/octet-stream') {
-        getRawBody(req, {
-            length: req.headers['content-length'],
-            encoding: this.charset
-        }, function (err, string) {
-            if (err)
-                return next(err);
-
-            req.body = string;
-            next();
-        })
-    }
-    else {
-        next();
-    }
-
-});
+// app.use(function (req, res, next) {
+//     if (req.headers['content-type'] === 'application/octet-stream') {
+//         getRawBody(req, {
+//             length: req.headers['content-length'],
+//             encoding: this.charset
+//         }, function (err, string) {
+//             if (err)
+//                 return next(err);
+//
+//             req.body = string;
+//             next();
+//         })
+//     }
+//     else {
+//         next();
+//     }
+//
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -61,6 +61,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(bodyParser.json({ limit: '100mb' }));
+app.use(bodyParser.raw({ type: 'audio/aac', limit: '100mb' }));
 
 // Enabling cors
 app.use(function(req, res, next) {

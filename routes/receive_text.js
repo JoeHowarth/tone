@@ -4,17 +4,24 @@ var router = express.Router();
 var bodyparser = require('body-parser');
 const Speech = require('@google-cloud/speech');
 const fs = require('fs');
+const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
+const ffmpeg = require('fluent-ffmpeg');
+ffmpeg.setFfmpegPath(ffmpegPath);
+const linear16 = require('linear16');
+
 var config = {
     encoding: 'LINEAR16',
-    sampleRateHertz: 16000,
+    sampleRateHertz: 44100,
     languageCode: 'en-US'
 };
 
 // POST route for receiving text from front-end
 router.post('/send', function(req, res) {
+    linear16(req.body, './output.wav')
+        .then(outPath => console.log(outPath));
     // audio encoding features
     var audio = {
-        content: req.body
+        content: outPath
     };
 
     var request = {
