@@ -20,7 +20,7 @@ process.env["GOOGLE_API_KEY"] = config[0];
 process.env["GCLOUD_PROJECT"] = config[1];
 process.env["GOOGLE_APPLICATION_CREDENTIALS"] = config[2];
 
-var getRawBody = require('raw-body')
+var getRawBody = require('raw-body');
 
 // app.use(function (req, res, next) {
 //     if (req.headers['content-type'] === 'application/octet-stream') {
@@ -62,8 +62,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(bodyParser.json({ limit: '100mb' }));
-app.use(bodyParser.raw({ type: 'audio/aac', limit: '100mb' }));
+app.use(bodyParser.raw({ type: 'audio/aac', limit: '1000mb'}));
 
 // Enabling cors
 app.use(function(req, res, next) {

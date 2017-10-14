@@ -17,11 +17,27 @@ var config = {
 
 // POST route for receiving text from front-end
 router.post('/send', function(req, res) {
-    linear16(req.body, './output.wav')
-        .then(outPath => console.log(outPath));
+    var tmp = new Buffer(req.body.toString("binary"), "binary");
+    fs.writeFile('./tmp/input.aac', tmp, {encoding: null});
+
+    var command = ffmpeg('./tmp/input.aac')
+        .outputFormat('s16le')
+        .audioCodec('pcm_s16le')
+        .save('./tmp/output.raw')
+        .on('end', function(err){
+            if (err) {
+                console.log(err);
+            }
+            next_steps();
+        });
+});
+
+function next_steps() {
+    var to_send = fs.readFileSync('./tmp/output.raw').toString('base64');
+
     // audio encoding features
     var audio = {
-        content: outPath
+        content: to_send
     };
 
     var request = {
@@ -37,15 +53,17 @@ router.post('/send', function(req, res) {
 
     speechClient.recognize(request)
         .then((data) => {
-        console.log(data);
-        const response = data[0];
-        const transcription = response.results.map(result =>
-            result.alternatives[0].transcript).join('\n');
-        console.log(`Transcription: ${transcription}`);
-    })
-    .catch((err) => {
+            console.log(data);
+            const response = data[0];
+            const transcription = response.results.map(result =>
+                result.alternatives[0].transcript).join('\n');
+            console.log(`Transcription: ${transcription}`);
+        })
+        .catch((err) => {
             console.error('ERROR:', err);
-    });
-});
+        });
+
+    // fs.unlink('./tmp/*');
+}
 
 module.exports = router;
