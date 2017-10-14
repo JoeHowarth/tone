@@ -1,10 +1,8 @@
 'use strict'
-
 var  $;
+var jsdom = require("jsdom/lib/old-api");
 
-
-
-require("jsdom").env("", function(err, window) {
+jsdom.env("", function(err, window) {
     if (err) {
         console.error(err);
         return;
@@ -16,6 +14,7 @@ require("jsdom").env("", function(err, window) {
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const express = require('express');
 const bodyParser = require('body-parser');
+const router = express.Router();
 const request = require('request');
 const app = express();
 
@@ -60,3 +59,5 @@ function play_song(song_name){
     element = document.getElementById('songBox');
     element.innerHTML = get_uri(song_name);
 }
+
+module.exports = play_song;
