@@ -14,7 +14,7 @@ def makeMatrix():
         "Romantic" : (9,9,1),
         "Sentimental" : (9,9,2),
         "Tender" : (9,1,1),
-        "Easygoing" : (9,1,1),
+        "Easygoing" : (5,5,1),
         "Yearning" : (9,9,9),
         "Sophisticated" : (900,900,900),
         "Sensual" : (900,900,900),
@@ -105,7 +105,7 @@ def makeMatrix():
     vec_list = []
     for (title, artist, _ID) in songList:
         result = pygn.search(clientID=clientID, userID=userID, artist=artist, track=title)
-        if result.get("mood") == None or result == None:
+        if result == None or result.get("mood") == None:
             print(title)
         else:
             moods = result["mood"]
