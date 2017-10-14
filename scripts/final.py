@@ -84,6 +84,9 @@ def matchSong(sent, mag, vol):
 #     ("Turning Tables", "Adele"),
 # ]
 
+s = sys.argv[0]
+m = sys.argv[1]
+v = sys.argv[2]
 
 matchSong(s, m, v)
 #
