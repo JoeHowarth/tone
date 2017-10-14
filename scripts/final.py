@@ -7,6 +7,9 @@ import pickle
 import json
 
 def matchSong(vec):
+    vec = [5,9,9]
+    # vec = shift_vec(vec)
+
     # if not SongMatrix:
     SongMatrix = pickle.load(open("matrix.txt", "rb"))
     songList = pickle.load(open("songList.txt", "rb"))
@@ -15,15 +18,25 @@ def matchSong(vec):
     print('match_song:', vec, SongMatrix)
     dists = np.sqrt(np.linalg.norm(SongMatrix - vec, axis=1))
     print("dists",dists)
+
     dist_IDs = zip(dists,songList)
     closest_match = sorted(dist_IDs)[0]
     songID = closest_match[1]
 
     response_dict = {"title": song_ID[0], "artist": song_ID[1], "song_ID": song_ID[2], "vol":vec[2]}
-    with open('result.json', 'w') as fp:
+    with open('../tmp/result.json', 'w') as fp:
         json.dump(response_dict, fp)
 
     return response_dict
+
+def shift_vec(vec):
+    (sent, mag, vol) = vec
+    ## sent in [-2,2] ??
+
+    ## mag in [-2,2]
+
+    ## vol in ????
+
 
 # songList =  [
 #     ( "Breathe Me", "Sia"),
