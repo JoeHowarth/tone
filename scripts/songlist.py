@@ -1,5 +1,5 @@
 import pickle
-import csv
+# import csv
 
 
 songList = [
@@ -337,8 +337,6 @@ songList = [
 ("Same Sun","Satellite Stories","5Qi54SgmCo8y2lArA0Vbsk"),
 ("The Trap","Satellite Stories","0kTXtk7NSe3OzQ4FDonwyO"),
 ("With You","Satellite Stories","4yMyXyv1kuFV522wTILydo"),
-
-
 ("Dan Bilzerian","T-Pain","5QfQKhvdcxPgp68O0S39FV"),
 ("Love On The Brain","Rihanna","2aksifNn5ph8igDOkPBA02"),
 ("Ab Ovo","Joep Beving","02mkkozonPEDCenOhuWwLc"),
@@ -784,6 +782,6 @@ songList = [
 
 pickle.dump(songList, open("songList.txt", "wb"))
 
-with open("songList.csv", 'wb') as myfile:
-    wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-    wr.writerow(songList)
+# with open("songList.csv", 'wb') as myfile:
+#     wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+#     wr.writerow(songList)

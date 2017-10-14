@@ -1,7 +1,6 @@
 from __future__ import print_function
 import sys, pygn, json
 from pprint import pprint
-import time
 import numpy as np
 import pickle
 import json
@@ -10,16 +9,16 @@ def matchSong(vec):
     vec = [5,9,9]
     # vec = shift_vec(vec)
 
-    reader = csv.reader(open("matrix.csv", "rb"), delimiter=",")
-    x = list(reader)
-    SongMatrix = numpy.array(x).astype("float")
+    # reader = csv.reader(open("matrix.csv", "rb"), delimiter=",")
+    # x = list(reader)
+    # SongMatrix = numpy.array(x).astype("float")
 
-    reader = csv.reader(open("songList.csv", "rb"), delimiter=",")
-    x = list(reader)
-    songList = numpy.array(x).astype("float")
+    # reader = csv.reader(open("songList.csv", "rb"), delimiter=",")
+    # x = list(reader)
+    # songList = numpy.array(x).astype("float")
     # if not SongMatrix:
-    # SongMatrix = pickle.load(open("matrix.txt", "rb"))
-    # songList = pickle.load(open("songList.txt", "rb"))
+    SongMatrix = pickle.load(open("matrix.txt", "rb"))
+    songList = pickle.load(open("songList.txt", "rb"))
     vec = np.asarray(vec)
 
     # print('match_song:', vec, SongMatrix)

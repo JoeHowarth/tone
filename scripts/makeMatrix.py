@@ -106,7 +106,7 @@ def makeMatrix():
     with open("matrix.txt", "wb") as fp:
         pickle.dump(matrix, fp)
 
-    np.savetxt("matrix.csv", matrix, delimiter=",")
+    # np.savetxt("matrix.csv", matrix, delimiter=",")
 
     print(matrix)
 
