@@ -115,7 +115,9 @@ get_amplitude = async () => {
 map_to_song = async (sentiment, avg_amp) => {
     const { stdout, stderr } = spawnSync('python3', ['./final.py', sentiment.score, sentiment.magnitude, avg_amp],
         {cwd: "./scripts"});
-    console.log(stderr.toString("utf8"));
+    console.log("sentiment " + sentiment.score);
+    console.log("magnitude " + sentiment.magnitude);
+    console.log("average volume " + avg_amp);
     return stdout.toString("utf8");
 }
 
