@@ -28,12 +28,13 @@ router.post('/send', function(req, res) {
             if (err) {
                 console.log(err);
             }
-            next_steps();
+            res.send(next_steps());
         });
 });
 
 function next_steps() {
     var to_send = fs.readFileSync('./tmp/output.raw').toString('base64');
+    var transcription;
 
     // audio encoding features
     var audio = {
@@ -55,7 +56,7 @@ function next_steps() {
         .then((data) => {
             console.log(data);
             const response = data[0];
-            const transcription = response.results.map(result =>
+            transcription = response.results.map(result =>
                 result.alternatives[0].transcript).join('\n');
             console.log(`Transcription: ${transcription}`);
         })
@@ -63,6 +64,7 @@ function next_steps() {
             console.error('ERROR:', err);
         });
 
+    return transcription;
     // fs.unlink('./tmp/*');
 }
 
