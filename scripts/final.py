@@ -24,10 +24,10 @@ def matchSong(vec):
     songID = closest_match[1]
 
     response_dict = {"title": song_ID[0], "artist": song_ID[1], "song_ID": song_ID[2], "vol":vec[2]}
-    with open('../tmp/result.json', 'w') as fp:
-        json.dump(response_dict, fp)
+    # with open('../tmp/result.json', 'w') as fp:
+    json.dumps(response_dict)
 
-    return response_dict
+    # return response_dict
 
 def shift_vec(vec):
     (sent, mag, vol) = vec
