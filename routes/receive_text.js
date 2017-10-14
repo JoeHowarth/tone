@@ -5,6 +5,8 @@ var bodyparser = require('body-parser');
 var spawn = require("child_process").spawn;
 
 const Speech = require('@google-cloud/speech');
+const Language = require('@google-cloud/language');
+
 const fs = require('fs');
 const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 const ffmpeg = require('fluent-ffmpeg');
@@ -24,15 +26,15 @@ router.post('/send', function(req, res) {
     fs.writeFile(input_file, tmp, {encoding: null});
 
     // fix frequency based on text
-    var command0 = ffmpeg(input_file)
-        .ffprobe(function(err, data) {
-            if(err){
-                console.log(err);
-            }
-            else{
-                config.sampleRateHertz = data.streams[0].sample_rate;
-            }
-        });
+    // var command0 = ffmpeg(input_file)
+    //     .ffprobe(function(err, data) {
+    //         if(err){
+    //             console.log(err);
+    //         }
+    //         else{
+    //             config.sampleRateHertz = data.streams[0].sample_rate;
+    //         }
+    //     });
 
     // create file and perform computation
     var command = ffmpeg(input_file)
@@ -43,22 +45,43 @@ router.post('/send', function(req, res) {
             if (err) {
                 console.log(err);
             }
-            res.send(next_steps());
+            next_steps();
         });
 });
 
 function next_steps() {
-    var text = get_text();
+    var sentiment = get_text();
     var avg_amp = get_amplitude();
-    console.log(amplitude);
-    // var sentiment = get_sentiment();
     // return matching_song(speech_characteristics);
+}
+
+function get_sentiment(text) {
+    const language = new Language.LanguageServiceClient();
+    const document = {
+        content: text,
+        type: 'PLAIN_TEXT'
+    };
+
+    // Detects the sentiment of the text
+    language
+        .analyzeSentiment({document: document})
+        .then(results => {
+            const sentiment = results[0].documentSentiment;
+
+            console.log(`Text: ${text}`);
+            console.log(`Sentiment score: ${sentiment.score}`);
+            console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
+        })
+        .catch(err => {
+            console.error('ERROR:', err);
+        });
 }
 
 function get_amplitude() {
     var process = spawn('python', ['./scripts/volume.py', input_file]);
     process.stdout.on('data', function(data) {
-       return data;
+        data = data.toString("utf8");
+        return data;
     });
 }
 
@@ -88,6 +111,7 @@ function get_text() {
             transcription = response.results.map(result =>
                 result.alternatives[0].transcript).join('\n');
             console.log(`Transcription: ${transcription}`);
+            return get_sentiment(transcription);
         })
         .catch((err) => {
             console.error('ERROR:', err);
