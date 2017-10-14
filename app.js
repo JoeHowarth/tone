@@ -4,6 +4,8 @@ var path = require('path'); // working with file and directory paths
 var cookieParser = require('cookie-parser'); 
 var bodyParser = require('body-parser');
 
+var config = require('./bin/config')
+
 var index = require('./routes/index');
 var receive_text = require('./routes/receive_text');
 // var users = require('./routes/users');
@@ -12,6 +14,9 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+// setting secrets
+app.set('config', config);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
