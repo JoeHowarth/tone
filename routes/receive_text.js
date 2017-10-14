@@ -45,7 +45,7 @@ router.post('/send', function(req, res) {
             if (err) {
                 console.log(err);
             }
-            res.send(next_steps(map_to_song));
+            console.log(next_steps(map_to_song));
         });
 });
 
@@ -116,6 +116,7 @@ get_amplitude = async () => {
     var process = spawn('python', ['./scripts/volume.py', input_file]);
     process.stdout.on('data', function(data) {
         data = data.toString("utf8");
+        console.log(data);
         return data;
     });
 }
