@@ -45,48 +45,18 @@ router.post('/send', function(req, res) {
             if (err) {
                 console.log(err);
             }
-            next_steps();
+            res.send(next_steps(map_to_song));
         });
 });
 
-function next_steps() {
-    var sentiment = get_text();
-    var avg_amp = get_amplitude();
-    // return matching_song(speech_characteristics);
+next_steps = async (map_to_song) => {
+    var sentiment = await get_text();
+    var avg_amp = await get_amplitude();
+    return map_to_song(sentiment, avg_amp);
 }
 
-function get_sentiment(text) {
-    const language = new Language.LanguageServiceClient();
-    const document = {
-        content: text,
-        type: 'PLAIN_TEXT'
-    };
-
-    // Detects the sentiment of the text
-    language
-        .analyzeSentiment({document: document})
-        .then(results => {
-            const sentiment = results[0].documentSentiment;
-
-            console.log(`Text: ${text}`);
-            console.log(`Sentiment score: ${sentiment.score}`);
-            console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
-        })
-        .catch(err => {
-            console.error('ERROR:', err);
-        });
-}
-
-function get_amplitude() {
-    var process = spawn('python', ['./scripts/volume.py', input_file]);
-    process.stdout.on('data', function(data) {
-        data = data.toString("utf8");
-        return data;
-    });
-}
-
-function get_text() {
-    var to_send = fs.readFileSync(output_file).toString('base64');
+get_text = async () => {
+    var to_send = await fs.readFileSync(output_file).toString('base64');
     var transcription;
 
     // audio encoding features
@@ -118,6 +88,44 @@ function get_text() {
         });
 
     // fs.unlink('./tmp/*');
+}
+
+function get_sentiment(text) {
+    const language = new Language.LanguageServiceClient();
+    const document = {
+        content: text,
+        type: 'PLAIN_TEXT'
+    };
+
+    // Detects the sentiment of the text
+    language
+        .analyzeSentiment({document: document})
+        .then(results => {
+            const sentiment = results[0].documentSentiment;
+
+            console.log(`Text: ${text}`);
+            console.log(`Sentiment score: ${sentiment.score}`);
+            console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
+        })
+        .catch(err => {
+            console.error('ERROR:', err);
+        });
+}
+
+get_amplitude = async () => {
+    var process = spawn('python', ['./scripts/volume.py', input_file]);
+    process.stdout.on('data', function(data) {
+        data = data.toString("utf8");
+        return data;
+    });
+}
+
+function map_to_song(sentiment, avg_amp) {
+    var process = spawn('python', ['./scripts/final.py', [sentiment.score, sentiment.magnitude, avg_amp]]);
+    process.stdout.on('data', function(data) {
+       data = data.toString("utf8");
+       return data;
+    });
 }
 
 module.exports = router;
