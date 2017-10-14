@@ -16,6 +16,26 @@ var app = express();
 //     autoFiles: true
 // };
 
+var getRawBody = require('raw-body')
+app.use(function (req, res, next) {
+    if (req.headers['content-type'] === 'application/octet-stream') {
+        getRawBody(req, {
+            length: req.headers['content-length'],
+            encoding: this.charset
+        }, function (err, string) {
+            if (err)
+                return next(err);
+
+            req.body = string;
+            next();
+        })
+    }
+    else {
+        next();
+    }
+
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
