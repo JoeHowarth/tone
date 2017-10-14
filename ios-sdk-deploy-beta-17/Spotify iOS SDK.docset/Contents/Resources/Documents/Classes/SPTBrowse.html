@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>SPTBrowse Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">Spotify iOS SDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Spotify AB</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/createRequestForFeaturedPlaylistsInCountry:limit:offset:locale:timestamp:accessToken:error:">+ createRequestForFeaturedPlaylistsInCountry:limit:offset:locale:timestamp:accessToken:error:</option>
+		
+		<option value="//api/name/createRequestForNewReleasesInCountry:limit:offset:accessToken:error:">+ createRequestForNewReleasesInCountry:limit:offset:accessToken:error:</option>
+		
+		<option value="//api/name/newReleasesFromData:withResponse:error:">+ newReleasesFromData:withResponse:error:</option>
+		
+		<option value="//api/name/requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:accessToken:callback:">+ requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:accessToken:callback:</option>
+		
+		<option value="//api/name/requestNewReleasesForCountry:limit:offset:accessToken:callback:">+ requestNewReleasesForCountry:limit:offset:accessToken:callback:</option>
+		
+	</optgroup>
+	
+
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">SPTBrowse Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>SPTBrowse.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>This class provides helpers for using the browse features in the Spotify API</p>
+
+<p>API Docs: <a href="https://developer.spotify.com/web-api/browse-endpoints/">https://developer.spotify.com/web-api/browse-endpoints/</a></p>
+
+<p>API Console: <a href="https://developer.spotify.com/web-api/console/browse/">https://developer.spotify.com/web-api/console/browse/</a></p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						<a title="API Request Factories" name="task_API Request Factories"></a>
+						<h2 class="task-title">API Request Factories</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/createRequestForFeaturedPlaylistsInCountry:limit:offset:locale:timestamp:accessToken:error:" title="createRequestForFeaturedPlaylistsInCountry:limit:offset:locale:timestamp:accessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForFeaturedPlaylistsInCountry:limit:offset:locale:timestamp:accessToken:error:">+&nbsp;createRequestForFeaturedPlaylistsInCountry:limit:offset:locale:timestamp:accessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get a list of featured playlists</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForFeaturedPlaylistsInCountry:(NSString *)<em>country</em> limit:(NSInteger)<em>limit</em> offset:(NSInteger)<em>offset</em> locale:(NSString *)<em>locale</em> timestamp:(NSDate *)<em>timestamp</em> accessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>country</code></th>
+						<td><p>A ISO 3166-1 country code to get playlists for, or <code>nil</code> to get global recommendations.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>limit</code></th>
+						<td><p>The number of results to return, max 50.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>offset</code></th>
+						<td><p>The index at which to start returning results.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>locale</code></th>
+						<td><p>The locale of the user, for localized recommendations, <code>nil</code> will default to American English.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>timestamp</code></th>
+						<td><p>The time of day to get recommendations for (without timezone), or <code>nil</code> for current local time</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>An authenticated access token. Must be valid and authenticated</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional error value, will be set if the creation of the request failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The request</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Parse the response into an <a href="../Classes/SPTFeaturedPlaylistList.html"><code>SPTFeaturedPlaylistList</code></a> using <code></code>SPTFeaturedPlaylistList<code> playlistListFromData:withResponse:error</code></p>
+
+<p>See <a href="https://developer.spotify.com/web-api/get-list-featured-playlists/">https://developer.spotify.com/web-api/get-list-featured-playlists/</a> for more information on parameters</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTBrowse.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForNewReleasesInCountry:limit:offset:accessToken:error:" title="createRequestForNewReleasesInCountry:limit:offset:accessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForNewReleasesInCountry:limit:offset:accessToken:error:">+&nbsp;createRequestForNewReleasesInCountry:limit:offset:accessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get a list of new releases.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForNewReleasesInCountry:(NSString *)<em>country</em> limit:(NSInteger)<em>limit</em> offset:(NSInteger)<em>offset</em> accessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>country</code></th>
+						<td><p>A ISO 3166-1 country code to get releases for, or <code>nil</code> for global releases.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>limit</code></th>
+						<td><p>The number of results to return, max 50.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>offset</code></th>
+						<td><p>The index at which to start returning results.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>An authenticated access token. Must be valid and authenticated</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional error value, will be set if the creation of the request failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Parse the response into an <a href="../Classes/SPTListPage.html"><code>SPTListPage</code></a> of <a href="../Classes/SPTAlbum.html"><code>SPTAlbum</code></a>&rsquo;s using <code></code>SPTListPage<code> listPageFromData:withResponse:error</code></p>
+
+<p>See <a href="https://developer.spotify.com/web-api/get-list-new-releases/">https://developer.spotify.com/web-api/get-list-new-releases/</a> for more information on parameters</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTBrowse.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="API Response Parsers" name="task_API Response Parsers"></a>
+						<h2 class="task-title">API Response Parsers</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/newReleasesFromData:withResponse:error:" title="newReleasesFromData:withResponse:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/newReleasesFromData:withResponse:error:">+&nbsp;newReleasesFromData:withResponse:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Parse the response from createRequestForNewReleasesInCountry into a list of new releases</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (SPTListPage *)newReleasesFromData:(NSData *)<em>data</em> withResponse:(NSURLResponse *)<em>response</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>data</code></th>
+						<td><p>The API response data</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>response</code></th>
+						<td><p>The API response object</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to an <code>NSError</code> that will receive the error code if operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The list of new releases as an <a href="../Classes/SPTListPage.html"><code>SPTListPage</code></a> object</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTBrowse.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Convenience methods" name="task_Convenience methods"></a>
+						<h2 class="task-title">Convenience methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:accessToken:callback:" title="requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:accessToken:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:accessToken:callback:">+&nbsp;requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:accessToken:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get a list of featured playlists</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)requestFeaturedPlaylistsForCountry:(NSString *)<em>country</em> limit:(NSInteger)<em>limit</em> offset:(NSInteger)<em>offset</em> locale:(NSString *)<em>locale</em> timestamp:(NSDate *)<em>timestamp</em> accessToken:(NSString *)<em>accessToken</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>country</code></th>
+						<td><p>A ISO 3166-1 country code to get playlists for, or <code>nil</code> to get global recommendations.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>limit</code></th>
+						<td><p>The number of results to return, max 50.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>offset</code></th>
+						<td><p>The index at which to start returning results.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>locale</code></th>
+						<td><p>The locale of the user, for localized recommendations, <code>nil</code> will default to American English.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>timestamp</code></th>
+						<td><p>The time of day to get recommendations for (without timezone), or <code>nil</code> for current local time</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>An authenticated access token. Must be valid and authenticated</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete, containing a <a href="../Classes/SPTFeaturedPlaylistList.html"><code>SPTFeaturedPlaylistList</code></a></p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This is a convenience method around the createRequest equivalent and the current <a href="../Protocols/SPTRequestHandlerProtocol.html"><code>SPTRequestHandlerProtocol</code></a></p>
+
+<p>See <a href="https://developer.spotify.com/web-api/get-list-featured-playlists/">https://developer.spotify.com/web-api/get-list-featured-playlists/</a> for more information on parameters</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTBrowse.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/requestNewReleasesForCountry:limit:offset:accessToken:callback:" title="requestNewReleasesForCountry:limit:offset:accessToken:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestNewReleasesForCountry:limit:offset:accessToken:callback:">+&nbsp;requestNewReleasesForCountry:limit:offset:accessToken:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get a list of new releases.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)requestNewReleasesForCountry:(NSString *)<em>country</em> limit:(NSInteger)<em>limit</em> offset:(NSInteger)<em>offset</em> accessToken:(NSString *)<em>accessToken</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>country</code></th>
+						<td><p>A ISO 3166-1 country code to get releases for, or <code>nil</code> for global releases.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>limit</code></th>
+						<td><p>The number of results to return, max 50.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>offset</code></th>
+						<td><p>The index at which to start returning results.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>An authenticated access token. Must be valid and authenticated</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete, containing a <a href="../Classes/SPTListPage.html"><code>SPTListPage</code></a></p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This is a convenience method around the createRequest equivalent and the current <a href="../Protocols/SPTRequestHandlerProtocol.html"><code>SPTRequestHandlerProtocol</code></a></p>
+
+<p>See <a href="https://developer.spotify.com/web-api/get-list-new-releases/">https://developer.spotify.com/web-api/get-list-new-releases/</a> for more information on parameters</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTBrowse.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2016 Spotify AB. All rights reserved. Updated: 2016-06-30</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>SPTListPage Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">Spotify iOS SDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Spotify AB</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/hasNextPage">hasNextPage</option>
+		
+		<option value="//api/name/hasPreviousPage">hasPreviousPage</option>
+		
+		<option value="//api/name/isComplete">isComplete</option>
+		
+		<option value="//api/name/items">items</option>
+		
+		<option value="//api/name/nextPageURL">nextPageURL</option>
+		
+		<option value="//api/name/previousPageURL">previousPageURL</option>
+		
+		<option value="//api/name/range">range</option>
+		
+		<option value="//api/name/totalListLength">totalListLength</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/listPageFromData:withResponse:expectingPartialChildren:rootObjectKey:error:">+ listPageFromData:withResponse:expectingPartialChildren:rootObjectKey:error:</option>
+		
+		<option value="//api/name/listPageFromDecodedJSON:expectingPartialChildren:rootObjectKey:error:">+ listPageFromDecodedJSON:expectingPartialChildren:rootObjectKey:error:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/createRequestForNextPageWithAccessToken:error:">- createRequestForNextPageWithAccessToken:error:</option>
+		
+		<option value="//api/name/createRequestForPreviousPageWithAccessToken:error:">- createRequestForPreviousPageWithAccessToken:error:</option>
+		
+		<option value="//api/name/pageByAppendingPage:">- pageByAppendingPage:</option>
+		
+		<option value="//api/name/requestNextPageWithAccessToken:callback:">- requestNextPageWithAccessToken:callback:</option>
+		
+		<option value="//api/name/requestNextPageWithSession:callback:">- requestNextPageWithSession:callback:</option>
+		
+		<option value="//api/name/requestPreviousPageWithAccessToken:callback:">- requestPreviousPageWithAccessToken:callback:</option>
+		
+		<option value="//api/name/requestPreviousPageWithSession:callback:">- requestPreviousPageWithSession:callback:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">SPTListPage Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Conforms to</th>
+	<td><a href="../Protocols/SPTTrackProvider.html">SPTTrackProvider</a></td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>SPTListPage.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>This class represents a page within a paginated list.</p>
+
+<p>For the sake of conserving resources, lists that have the potential to be very large
+(such as search results, a playlist or album&rsquo;s tracks, etc) are not delivered as a whole
+from the Spotify backend - instead, such lists are paginated. This class allows you
+to work with those pages.</p>
+
+<p>API Model: <a href="https://developer.spotify.com/web-api/object-model/">https://developer.spotify.com/web-api/object-model/</a>#paging-object</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						<a title="Properties" name="task_Properties"></a>
+						<h2 class="task-title">Properties</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/range" title="range"></a>
+	<h3 class="method-title"><code><a href="#//api/name/range">&nbsp;&nbsp;range</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The range of the receiver within the source list.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSRange range</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTListPage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/totalListLength" title="totalListLength"></a>
+	<h3 class="method-title"><code><a href="#//api/name/totalListLength">&nbsp;&nbsp;totalListLength</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The length of the source list.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSUInteger totalListLength</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTListPage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/hasNextPage" title="hasNextPage"></a>
+	<h3 class="method-title"><code><a href="#//api/name/hasNextPage">&nbsp;&nbsp;hasNextPage</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns <code>YES</code> if there is at least one page in the source list after the receiver, otherwise <code>NO</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) BOOL hasNextPage</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTListPage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/hasPreviousPage" title="hasPreviousPage"></a>
+	<h3 class="method-title"><code><a href="#//api/name/hasPreviousPage">&nbsp;&nbsp;hasPreviousPage</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns <code>YES</code> if there is at least one page in the source list before the receiver, otherwise <code>NO</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) BOOL hasPreviousPage</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTListPage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/nextPageURL" title="nextPageURL"></a>
+	<h3 class="method-title"><code><a href="#//api/name/nextPageURL">&nbsp;&nbsp;nextPageURL</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the API url to the next page of <a href="#//api/name/items">items</a> if it exist, otherwise <code>nil</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, copy) NSURL *nextPageURL</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTListPage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/previousPageURL" title="previousPageURL"></a>
+	<h3 class="method-title"><code><a href="#//api/name/previousPageURL">&nbsp;&nbsp;previousPageURL</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the API url to the previous page of <a href="#//api/name/items">items</a> if it exist, otherwise <code>nil</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, copy) NSURL *previousPageURL</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTListPage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/isComplete" title="isComplete"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isComplete">&nbsp;&nbsp;isComplete</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns <code>YES</code> if the page contains every single item in the source list, otherwise <code>NO</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) BOOL isComplete</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTListPage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/items" title="items"></a>
+	<h3 class="method-title"><code><a href="#//api/name/items">&nbsp;&nbsp;items</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The items contained in the page the receiver represents.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, copy) NSArray *items</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTListPage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="API Request Factories" name="task_API Request Factories"></a>
+						<h2 class="task-title">API Request Factories</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/createRequestForNextPageWithAccessToken:error:" title="createRequestForNextPageWithAccessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForNextPageWithAccessToken:error:">&ndash;&nbsp;createRequestForNextPageWithAccessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request for fetching the next page in the source list.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSURLRequest *)createRequestForNextPageWithAccessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>An authenticated and valid access token.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional <code>NSError</code> that will be set if an error occured.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTListPage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForPreviousPageWithAccessToken:error:" title="createRequestForPreviousPageWithAccessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForPreviousPageWithAccessToken:error:">&ndash;&nbsp;createRequestForPreviousPageWithAccessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request for fetching the previous page in the source list.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSURLRequest *)createRequestForPreviousPageWithAccessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>An authenticated and valid access token.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional <code>NSError</code> that will be set if an error occured.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTListPage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="API Response Parsers" name="task_API Response Parsers"></a>
+						<h2 class="task-title">API Response Parsers</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/listPageFromData:withResponse:expectingPartialChildren:rootObjectKey:error:" title="listPageFromData:withResponse:expectingPartialChildren:rootObjectKey:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listPageFromData:withResponse:expectingPartialChildren:rootObjectKey:error:">+&nbsp;listPageFromData:withResponse:expectingPartialChildren:rootObjectKey:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a SPTListPage from a API response</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)listPageFromData:(NSData *)<em>data</em> withResponse:(NSURLResponse *)<em>response</em> expectingPartialChildren:(BOOL)<em>hasPartialChildren</em> rootObjectKey:(NSString *)<em>rootObjectKey</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>data</code></th>
+						<td><p>The API Response data</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>response</code></th>
+						<td><p>The API Response object</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>hasPartialChildren</code></th>
+						<td><p>True if api response provides partial entities, not full ones.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>rootObjectKey</code></th>
+						<td><p>The name of the entity with the actual content, or <code>nil</code> if the same as the root.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to a <code>NSError</code> object that will be set if an error occured.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <code>SPTListPage</code>, or nil if an error occured.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTListPage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listPageFromDecodedJSON:expectingPartialChildren:rootObjectKey:error:" title="listPageFromDecodedJSON:expectingPartialChildren:rootObjectKey:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listPageFromDecodedJSON:expectingPartialChildren:rootObjectKey:error:">+&nbsp;listPageFromDecodedJSON:expectingPartialChildren:rootObjectKey:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a SPTListPage from a decoded JSON structure</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)listPageFromDecodedJSON:(id)<em>decodedObject</em> expectingPartialChildren:(BOOL)<em>hasPartialChildren</em> rootObjectKey:(NSString *)<em>rootObjectKey</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>decodedObject</code></th>
+						<td><p>The JSON root entity</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>hasPartialChildren</code></th>
+						<td><p>True if api response provides partial entities, not full ones.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>rootObjectKey</code></th>
+						<td><p>The name of the entity with the actual content, or <code>nil</code> if the same as the root.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to a <code>NSError</code> object that will be set if an error occured.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <code>SPTListPage</code>, or nil if an error occured.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTListPage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Navigation and Manipulation" name="task_Navigation and Manipulation"></a>
+						<h2 class="task-title">Navigation and Manipulation</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/pageByAppendingPage:" title="pageByAppendingPage:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/pageByAppendingPage:">&ndash;&nbsp;pageByAppendingPage:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a new page by adding a page to the receiver.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)pageByAppendingPage:(SPTListPage *)<em>nextPage</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>nextPage</code></th>
+						<td><p>The page to add to the receiver.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A new <code>SPTListPage</code> containing the union of the receiver and nextPage.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> The added page <em>must</em> start immediately after the receiver - that is,
+<code>nextPage.</code>range<code>.location</code> must equal <code>self.</code>range<code>.location + self.</code>range<code>.length</code>.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTListPage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/requestNextPageWithSession:callback:" title="requestNextPageWithSession:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestNextPageWithSession:callback:">&ndash;&nbsp;requestNextPageWithSession:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request the next page in the source list.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)requestNextPageWithSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>The authenticated session. Must be valid and authenticated with the
+appropriate scopes to retrieve the requested list.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. This block will pass an error if the operation
+failed, otherwise the next <code>SPTListPage</code> in the source list.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTListPage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/requestNextPageWithAccessToken:callback:" title="requestNextPageWithAccessToken:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestNextPageWithAccessToken:callback:">&ndash;&nbsp;requestNextPageWithAccessToken:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request the next page in the source list.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)requestNextPageWithAccessToken:(NSString *)<em>accessToken</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>An authenticated and valid access token.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. This block will pass an error if the operation
+failed, otherwise the next <code>SPTListPage</code> in the source list.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTListPage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/requestPreviousPageWithSession:callback:" title="requestPreviousPageWithSession:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestPreviousPageWithSession:callback:">&ndash;&nbsp;requestPreviousPageWithSession:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request the previous page in the source list.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)requestPreviousPageWithSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>The authenticated session. Must be valid and authenticated with the
+appropriate scopes to retrieve the requested list.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. This block will pass an error if the operation
+failed, otherwise the previous <code>SPTListPage</code> in the source list.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTListPage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/requestPreviousPageWithAccessToken:callback:" title="requestPreviousPageWithAccessToken:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestPreviousPageWithAccessToken:callback:">&ndash;&nbsp;requestPreviousPageWithAccessToken:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request the previous page in the source list.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)requestPreviousPageWithAccessToken:(NSString *)<em>accessToken</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>An authenticated and valid access token.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. This block will pass an error if the operation
+failed, otherwise the previous <code>SPTListPage</code> in the source list.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTListPage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2016 Spotify AB. All rights reserved. Updated: 2016-06-30</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

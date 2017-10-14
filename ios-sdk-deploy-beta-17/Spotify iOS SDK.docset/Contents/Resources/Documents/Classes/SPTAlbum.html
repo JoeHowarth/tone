@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>SPTAlbum Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">Spotify iOS SDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Spotify AB</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/artists">artists</option>
+		
+		<option value="//api/name/externalIds">externalIds</option>
+		
+		<option value="//api/name/firstTrackPage">firstTrackPage</option>
+		
+		<option value="//api/name/genres">genres</option>
+		
+		<option value="//api/name/popularity">popularity</option>
+		
+		<option value="//api/name/releaseDate">releaseDate</option>
+		
+		<option value="//api/name/releaseYear">releaseYear</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/albumFromData:withResponse:error:">+ albumFromData:withResponse:error:</option>
+		
+		<option value="//api/name/albumFromDecodedJSON:error:">+ albumFromDecodedJSON:error:</option>
+		
+		<option value="//api/name/albumWithURI:accessToken:market:callback:">+ albumWithURI:accessToken:market:callback:</option>
+		
+		<option value="//api/name/albumWithURI:session:callback:">+ albumWithURI:session:callback:</option>
+		
+		<option value="//api/name/albumsFromDecodedJSON:error:">+ albumsFromDecodedJSON:error:</option>
+		
+		<option value="//api/name/albumsWithURIs:accessToken:market:callback:">+ albumsWithURIs:accessToken:market:callback:</option>
+		
+		<option value="//api/name/albumsWithURIs:session:callback:">+ albumsWithURIs:session:callback:</option>
+		
+		<option value="//api/name/createRequestForAlbum:withAccessToken:market:error:">+ createRequestForAlbum:withAccessToken:market:error:</option>
+		
+		<option value="//api/name/createRequestForAlbums:withAccessToken:market:error:">+ createRequestForAlbums:withAccessToken:market:error:</option>
+		
+		<option value="//api/name/isAlbumURI:">+ isAlbumURI:</option>
+		
+	</optgroup>
+	
+
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">SPTAlbum Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/SPTPartialAlbum.html">SPTPartialAlbum</a> : <a href="../Classes/SPTJSONObjectBase.html">SPTJSONObjectBase</a> : NSObject</td>
+</tr><tr>
+	<th>Conforms to</th>
+	<td><a href="../Protocols/SPTJSONObject.html">SPTJSONObject</a><br /><a href="../Protocols/SPTTrackProvider.html">SPTTrackProvider</a></td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>SPTAlbum.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>This class represents an album on the Spotify service.</p>
+
+<p>API Docs: <a href="https://developer.spotify.com/web-api/get-album/">https://developer.spotify.com/web-api/get-album/</a></p>
+
+<p>API Console: https://developer.spotify.com/web-api/console/albums/</p>
+
+<p>API Model: https://developer.spotify.com/web-api/object-model/#album-object-full</p>
+
+<p>Example usage:</p>
+
+<pre><code>[SPTAlbum albumWithURI:[NSURL URLWithString:@"spotify:album:58Dbqi6VBskSmnSsbXbgrs"]
+    accessToken:accessToken
+    market:@"UK"
+    callback:^(NSError *error, id object) {
+        if (error != nil) { handle error  }
+        NSLog(@"Got album %@", object);
+}];
+</code></pre>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						<a title="Properties" name="task_Properties"></a>
+						<h2 class="task-title">Properties</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/externalIds" title="externalIds"></a>
+	<h3 class="method-title"><code><a href="#//api/name/externalIds">&nbsp;&nbsp;externalIds</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Any external IDs of the album, such as the UPC code.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, copy) NSDictionary *externalIds</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAlbum.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/artists" title="artists"></a>
+	<h3 class="method-title"><code><a href="#//api/name/artists">&nbsp;&nbsp;artists</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>An array of artists for this album, as <a href="../Classes/SPTPartialArtist.html"><code>SPTPartialArtist</code></a> objects.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSArray *artists</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAlbum.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/firstTrackPage" title="firstTrackPage"></a>
+	<h3 class="method-title"><code><a href="#//api/name/firstTrackPage">&nbsp;&nbsp;firstTrackPage</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The tracks contained by this album, as a page of <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> objects.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) SPTListPage *firstTrackPage</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAlbum.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/releaseYear" title="releaseYear"></a>
+	<h3 class="method-title"><code><a href="#//api/name/releaseYear">&nbsp;&nbsp;releaseYear</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The release year of the album if known, otherwise <code>0</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSInteger releaseYear</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAlbum.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/releaseDate" title="releaseDate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/releaseDate">&nbsp;&nbsp;releaseDate</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Day-accurate release date of the track if known, otherwise <code>nil</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSDate *releaseDate</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAlbum.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/genres" title="genres"></a>
+	<h3 class="method-title"><code><a href="#//api/name/genres">&nbsp;&nbsp;genres</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a list of genre strings for the album.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, copy) NSArray *genres</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAlbum.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/popularity" title="popularity"></a>
+	<h3 class="method-title"><code><a href="#//api/name/popularity">&nbsp;&nbsp;popularity</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The popularity of the album as a value between 0.0 (least popular) to 100.0 (most popular).</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) double popularity</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAlbum.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="API Request Factories" name="task_API Request Factories"></a>
+						<h2 class="task-title">API Request Factories</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/createRequestForAlbum:withAccessToken:market:error:" title="createRequestForAlbum:withAccessToken:market:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForAlbum:withAccessToken:market:error:">+&nbsp;createRequestForAlbum:withAccessToken:market:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request for getting an album.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForAlbum:(NSURL *)<em>uri</em> withAccessToken:(NSString *)<em>accessToken</em> market:(NSString *)<em>market</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>uri</code></th>
+						<td><p>The Spotify URI of the album to request.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>An optional access token. Can be <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>market</code></th>
+						<td><p>An optional market parameter. Can be <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional <code>NSError</code> that will be set if an error occured.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <code>NSURLRequest</code> for requesting the album</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>API Docs: <a href="https://developer.spotify.com/web-api/get-album/">https://developer.spotify.com/web-api/get-album/</a></p>
+
+<p>Try it: <a href="https://developer.spotify.com/web-api/console/get-album/">https://developer.spotify.com/web-api/console/get-album/</a></p><div class="note"><p><strong>Note:</strong> This method takes Spotify URIs in the form <code>spotify:*</code>, NOT HTTP URLs.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAlbum.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForAlbums:withAccessToken:market:error:" title="createRequestForAlbums:withAccessToken:market:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForAlbums:withAccessToken:market:error:">+&nbsp;createRequestForAlbums:withAccessToken:market:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request for getting multiple albums.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForAlbums:(NSArray *)<em>uris</em> withAccessToken:(NSString *)<em>accessToken</em> market:(NSString *)<em>market</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>uris</code></th>
+						<td><p>An array of Spotify URIs.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>An optional access token. Can be <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>market</code></th>
+						<td><p>An optional market parameter. Can be <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional <code>NSError</code> that will be set if an error occured.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <code>NSURLRequest</code> for requesting the albums</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>API Docs: <a href="https://developer.spotify.com/web-api/get-several-albums/">https://developer.spotify.com/web-api/get-several-albums/</a></p>
+
+<p>Try it: <a href="https://developer.spotify.com/web-api/console/get-several-albums/">https://developer.spotify.com/web-api/console/get-several-albums/</a></p><div class="note"><p><strong>Note:</strong> This method takes Spotify URIs in the form <code>spotify:*</code>, NOT HTTP URLs.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAlbum.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="API Response Parsers" name="task_API Response Parsers"></a>
+						<h2 class="task-title">API Response Parsers</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/albumFromData:withResponse:error:" title="albumFromData:withResponse:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/albumFromData:withResponse:error:">+&nbsp;albumFromData:withResponse:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Parse an API Response into an <code>SPTAlbum</code> object.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)albumFromData:(NSData *)<em>data</em> withResponse:(NSURLResponse *)<em>response</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>data</code></th>
+						<td><p>The API response data</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>response</code></th>
+						<td><p>The API response object</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional <code>NSError</code> that will be set if an error occured when parsing the data.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>an <code>SPTAlbum</code> object, or nil if the parsing failed.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAlbum.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/albumFromDecodedJSON:error:" title="albumFromDecodedJSON:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/albumFromDecodedJSON:error:">+&nbsp;albumFromDecodedJSON:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Parse an JSON object structure into an <code>SPTAlbum</code> object.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)albumFromDecodedJSON:(id)<em>decodedObject</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>decodedObject</code></th>
+						<td><p>The decoded JSON structure to parse.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional <code>NSError</code> that will be set if an error occured when parsing the data.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>an <code>SPTAlbum</code> object, or nil if the parsing failed.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAlbum.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/albumsFromDecodedJSON:error:" title="albumsFromDecodedJSON:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/albumsFromDecodedJSON:error:">+&nbsp;albumsFromDecodedJSON:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Parse an JSON object structure into an array of <code>SPTAlbum</code> object.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSArray *)albumsFromDecodedJSON:(id)<em>decodedObject</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>decodedObject</code></th>
+						<td><p>The decoded JSON structure to parse.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional <code>NSError</code> that will be set if an error occured when parsing the data.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>an <code>SPTAlbum</code> object, or nil if the parsing failed.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAlbum.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Convenience Methods" name="task_Convenience Methods"></a>
+						<h2 class="task-title">Convenience Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/albumWithURI:session:callback:" title="albumWithURI:session:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/albumWithURI:session:callback:">+&nbsp;albumWithURI:session:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request the album at the given Spotify URI.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)albumWithURI:(NSURL *)<em>uri</em> session:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>uri</code></th>
+						<td><p>The Spotify URI of the album to request.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Can be <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass a SPTAlbum object on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This is a convenience method on top of the <a href="#//api/name/createRequestForAlbum:withAccessToken:market:error:">[SPTAlbum createRequestForAlbum:withAccessToken:market:error:]</a> and the shared <a href="../Classes/SPTRequest.html">SPTRequest</a> handler.</p><div class="note"><p><strong>Note:</strong> This method takes Spotify URIs in the form <code>spotify:*</code>, NOT HTTP URLs.</p></div><div class="note"><p><strong>Note:</strong> This method is deprecated in favor of <a href="#//api/name/albumWithURI:accessToken:market:callback:">[SPTAlbum albumWithURI:accessToken:market:callback:]</a></p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAlbum.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/albumWithURI:accessToken:market:callback:" title="albumWithURI:accessToken:market:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/albumWithURI:accessToken:market:callback:">+&nbsp;albumWithURI:accessToken:market:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request the album at the given Spotify URI.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)albumWithURI:(NSURL *)<em>uri</em> accessToken:(NSString *)<em>accessToken</em> market:(NSString *)<em>market</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>uri</code></th>
+						<td><p>The Spotify URI of the album to request.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>An optional access token. Can be <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>market</code></th>
+						<td><p>An optional market parameter. Can be <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass a SPTAlbum object on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This is a convenience method on top of the <a href="#//api/name/createRequestForAlbum:withAccessToken:market:error:">[SPTAlbum createRequestForAlbum:withAccessToken:market:error:]</a> and the shared <a href="../Classes/SPTRequest.html">SPTRequest</a> handler.</p><div class="note"><p><strong>Note:</strong> This method takes Spotify URIs in the form <code>spotify:*</code>, NOT HTTP URLs.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAlbum.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/albumsWithURIs:session:callback:" title="albumsWithURIs:session:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/albumsWithURIs:session:callback:">+&nbsp;albumsWithURIs:session:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request multiple albums given an array of Spotify URIs.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)albumsWithURIs:(NSArray *)<em>uris</em> session:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>uris</code></th>
+						<td><p>An array of Spotify URIs.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Can be <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass an array of SPTAlbum objects on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This is a convenience method on top of the <a href="#//api/name/createRequestForAlbums:withAccessToken:market:error:">[SPTAlbum createRequestForAlbums:withAccessToken:market:error:]</a> and the shared <a href="../Classes/SPTRequest.html">SPTRequest</a> handler.</p><div class="note"><p><strong>Note:</strong> This method takes Spotify URIs in the form <code>spotify:*</code>, NOT HTTP URLs.</p></div><div class="note"><p><strong>Note:</strong> This method is deprecated in favor of <a href="#//api/name/albumsWithURIs:accessToken:market:callback:">[SPTAlbum albumsWithURIs:accessToken:market:callback:]</a></p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAlbum.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/albumsWithURIs:accessToken:market:callback:" title="albumsWithURIs:accessToken:market:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/albumsWithURIs:accessToken:market:callback:">+&nbsp;albumsWithURIs:accessToken:market:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request multiple albums given an array of Spotify URIs.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)albumsWithURIs:(NSArray *)<em>uris</em> accessToken:(NSString *)<em>accessToken</em> market:(NSString *)<em>market</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>uris</code></th>
+						<td><p>An array of Spotify URIs.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>An optional access token. Can be <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>market</code></th>
+						<td><p>An optional market parameter. Can be <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass an array of SPTAlbum objects on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This is a convenience method on top of the <a href="#//api/name/createRequestForAlbums:withAccessToken:market:error:">[SPTAlbum createRequestForAlbums:withAccessToken:market:error:]</a> and the shared <a href="../Classes/SPTRequest.html">SPTRequest</a> handler.</p><div class="note"><p><strong>Note:</strong> This method takes Spotify URIs in the form <code>spotify:*</code>, NOT HTTP URLs.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAlbum.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Miscellaneous" name="task_Miscellaneous"></a>
+						<h2 class="task-title">Miscellaneous</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/isAlbumURI:" title="isAlbumURI:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isAlbumURI:">+&nbsp;isAlbumURI:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Checks if the Spotify URI is a valid Spotify Album URI.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (BOOL)isAlbumURI:(NSURL *)<em>uri</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>uri</code></th>
+						<td><p>The Spotify URI to check.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This method takes Spotify URIs in the form <code>spotify:*</code>, NOT HTTP URLs.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAlbum.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2016 Spotify AB. All rights reserved. Updated: 2016-06-30</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

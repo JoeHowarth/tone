@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>SPTAudioStreamingPlaybackDelegate Protocol Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">Spotify iOS SDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Spotify AB</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/audioStreaming:didChangePlaybackStatus:">- audioStreaming:didChangePlaybackStatus:</option>
+		
+		<option value="//api/name/audioStreaming:didChangeRepeatStatus:">- audioStreaming:didChangeRepeatStatus:</option>
+		
+		<option value="//api/name/audioStreaming:didChangeShuffleStatus:">- audioStreaming:didChangeShuffleStatus:</option>
+		
+		<option value="//api/name/audioStreaming:didChangeToTrack:">- audioStreaming:didChangeToTrack:</option>
+		
+		<option value="//api/name/audioStreaming:didChangeVolume:">- audioStreaming:didChangeVolume:</option>
+		
+		<option value="//api/name/audioStreaming:didFailToPlayTrack:">- audioStreaming:didFailToPlayTrack:</option>
+		
+		<option value="//api/name/audioStreaming:didSeekToOffset:">- audioStreaming:didSeekToOffset:</option>
+		
+		<option value="//api/name/audioStreaming:didStartPlayingTrack:">- audioStreaming:didStartPlayingTrack:</option>
+		
+		<option value="//api/name/audioStreaming:didStopPlayingTrack:">- audioStreaming:didStopPlayingTrack:</option>
+		
+		<option value="//api/name/audioStreamingDidBecomeActivePlaybackDevice:">- audioStreamingDidBecomeActivePlaybackDevice:</option>
+		
+		<option value="//api/name/audioStreamingDidBecomeInactivePlaybackDevice:">- audioStreamingDidBecomeInactivePlaybackDevice:</option>
+		
+		<option value="//api/name/audioStreamingDidLosePermissionForPlayback:">- audioStreamingDidLosePermissionForPlayback:</option>
+		
+		<option value="//api/name/audioStreamingDidPopQueue:">- audioStreamingDidPopQueue:</option>
+		
+		<option value="//api/name/audioStreamingDidSkipToNextTrack:">- audioStreamingDidSkipToNextTrack:</option>
+		
+		<option value="//api/name/audioStreamingDidSkipToPreviousTrack:">- audioStreamingDidSkipToPreviousTrack:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">SPTAudioStreamingPlaybackDelegate Protocol Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Conforms to</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>SPTAudioStreamingController.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Defines events relating to audio playback.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/audioStreaming:didChangePlaybackStatus:" title="audioStreaming:didChangePlaybackStatus:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioStreaming:didChangePlaybackStatus:">&ndash;&nbsp;audioStreaming:didChangePlaybackStatus:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Called when playback status changes.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didChangePlaybackStatus:(BOOL)<em>isPlaying</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>audioStreaming</code></th>
+						<td><p>The object that sent the message.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>isPlaying</code></th>
+						<td><p>Set to <code>YES</code> if the object is playing audio, <code>NO</code> if it is paused.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAudioStreamingController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audioStreaming:didSeekToOffset:" title="audioStreaming:didSeekToOffset:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioStreaming:didSeekToOffset:">&ndash;&nbsp;audioStreaming:didSeekToOffset:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Called when playback is seeked &ldquo;unaturally&rdquo; to a new location.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didSeekToOffset:(NSTimeInterval)<em>offset</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>audioStreaming</code></th>
+						<td><p>The object that sent the message.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>offset</code></th>
+						<td><p>The new playback location.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAudioStreamingController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audioStreaming:didChangeVolume:" title="audioStreaming:didChangeVolume:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioStreaming:didChangeVolume:">&ndash;&nbsp;audioStreaming:didChangeVolume:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Called when playback volume changes.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didChangeVolume:(SPTVolume)<em>volume</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>audioStreaming</code></th>
+						<td><p>The object that sent the message.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>volume</code></th>
+						<td><p>The new volume.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAudioStreamingController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audioStreaming:didChangeShuffleStatus:" title="audioStreaming:didChangeShuffleStatus:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioStreaming:didChangeShuffleStatus:">&ndash;&nbsp;audioStreaming:didChangeShuffleStatus:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Called when shuffle status changes.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didChangeShuffleStatus:(BOOL)<em>isShuffled</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>audioStreaming</code></th>
+						<td><p>The object that sent the message.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>isShuffled</code></th>
+						<td><p>Set to <code>YES</code> if the object requests shuffled playback, otherwise <code>NO</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAudioStreamingController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audioStreaming:didChangeRepeatStatus:" title="audioStreaming:didChangeRepeatStatus:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioStreaming:didChangeRepeatStatus:">&ndash;&nbsp;audioStreaming:didChangeRepeatStatus:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Called when repeat status changes.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didChangeRepeatStatus:(BOOL)<em>isRepeated</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>audioStreaming</code></th>
+						<td><p>The object that sent the message.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>isRepeated</code></th>
+						<td><p>Set to <code>YES</code> if the object requests repeated playback, otherwise <code>NO</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAudioStreamingController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audioStreaming:didChangeToTrack:" title="audioStreaming:didChangeToTrack:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioStreaming:didChangeToTrack:">&ndash;&nbsp;audioStreaming:didChangeToTrack:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Called when playback moves to a new track.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didChangeToTrack:(NSDictionary *)<em>trackMetadata</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>audioStreaming</code></th>
+						<td><p>The object that sent the message.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>trackMetadata</code></th>
+						<td><p>Metadata for the new track. See -currentTrackMetadata for keys.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAudioStreamingController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audioStreaming:didFailToPlayTrack:" title="audioStreaming:didFailToPlayTrack:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioStreaming:didFailToPlayTrack:">&ndash;&nbsp;audioStreaming:didFailToPlayTrack:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Called when the streaming controller fails to play a track.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didFailToPlayTrack:(NSURL *)<em>trackUri</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>audioStreaming</code></th>
+						<td><p>The object that sent the message.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>trackUri</code></th>
+						<td><p>The URI of the track that failed to play.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This typically happens when the track is not available in the current users' region, if you&rsquo;re playing
+multiple tracks the playback will start playing the next track automatically</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAudioStreamingController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audioStreaming:didStartPlayingTrack:" title="audioStreaming:didStartPlayingTrack:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioStreaming:didStartPlayingTrack:">&ndash;&nbsp;audioStreaming:didStartPlayingTrack:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Called when the streaming controller begins playing a new track.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didStartPlayingTrack:(NSURL *)<em>trackUri</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>audioStreaming</code></th>
+						<td><p>The object that sent the message.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>trackUri</code></th>
+						<td><p>The URI of the track that started to play.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAudioStreamingController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audioStreaming:didStopPlayingTrack:" title="audioStreaming:didStopPlayingTrack:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioStreaming:didStopPlayingTrack:">&ndash;&nbsp;audioStreaming:didStopPlayingTrack:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Called before the streaming controller begins playing another track.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didStopPlayingTrack:(NSURL *)<em>trackUri</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>audioStreaming</code></th>
+						<td><p>The object that sent the message.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>trackUri</code></th>
+						<td><p>The URI of the track that stopped.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAudioStreamingController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audioStreamingDidSkipToNextTrack:" title="audioStreamingDidSkipToNextTrack:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioStreamingDidSkipToNextTrack:">&ndash;&nbsp;audioStreamingDidSkipToNextTrack:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Called when the audio streaming object requests playback skips to the next track.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidSkipToNextTrack:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>audioStreaming</code></th>
+						<td><p>The object that sent the message.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAudioStreamingController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audioStreamingDidSkipToPreviousTrack:" title="audioStreamingDidSkipToPreviousTrack:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioStreamingDidSkipToPreviousTrack:">&ndash;&nbsp;audioStreamingDidSkipToPreviousTrack:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Called when the audio streaming object requests playback skips to the previous track.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidSkipToPreviousTrack:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>audioStreaming</code></th>
+						<td><p>The object that sent the message.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAudioStreamingController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audioStreamingDidBecomeActivePlaybackDevice:" title="audioStreamingDidBecomeActivePlaybackDevice:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioStreamingDidBecomeActivePlaybackDevice:">&ndash;&nbsp;audioStreamingDidBecomeActivePlaybackDevice:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Called when the audio streaming object becomes the active playback device on the user&rsquo;s account.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidBecomeActivePlaybackDevice:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>audioStreaming</code></th>
+						<td><p>The object that sent the message.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAudioStreamingController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audioStreamingDidBecomeInactivePlaybackDevice:" title="audioStreamingDidBecomeInactivePlaybackDevice:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioStreamingDidBecomeInactivePlaybackDevice:">&ndash;&nbsp;audioStreamingDidBecomeInactivePlaybackDevice:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Called when the audio streaming object becomes an inactive playback device on the user&rsquo;s account.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidBecomeInactivePlaybackDevice:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>audioStreaming</code></th>
+						<td><p>The object that sent the message.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAudioStreamingController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audioStreamingDidLosePermissionForPlayback:" title="audioStreamingDidLosePermissionForPlayback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioStreamingDidLosePermissionForPlayback:">&ndash;&nbsp;audioStreamingDidLosePermissionForPlayback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Called when the streaming controller lost permission to play audio.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidLosePermissionForPlayback:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>audioStreaming</code></th>
+						<td><p>The object that sent the message.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This typically happens when the user plays audio from their account on another device.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAudioStreamingController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audioStreamingDidPopQueue:" title="audioStreamingDidPopQueue:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioStreamingDidPopQueue:">&ndash;&nbsp;audioStreamingDidPopQueue:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Called when the streaming controller popped a new item from the playqueue.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidPopQueue:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>audioStreaming</code></th>
+						<td><p>The object that sent the message.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAudioStreamingController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2016 Spotify AB. All rights reserved. Updated: 2016-06-30</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

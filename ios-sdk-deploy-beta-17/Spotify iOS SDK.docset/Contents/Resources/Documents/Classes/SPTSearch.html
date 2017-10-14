@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>SPTSearch Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">Spotify iOS SDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Spotify AB</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/createRequestForSearchWithQuery:queryType:accessToken:error:">+ createRequestForSearchWithQuery:queryType:accessToken:error:</option>
+		
+		<option value="//api/name/createRequestForSearchWithQuery:queryType:accessToken:market:error:">+ createRequestForSearchWithQuery:queryType:accessToken:market:error:</option>
+		
+		<option value="//api/name/createRequestForSearchWithQuery:queryType:offset:accessToken:error:">+ createRequestForSearchWithQuery:queryType:offset:accessToken:error:</option>
+		
+		<option value="//api/name/createRequestForSearchWithQuery:queryType:offset:accessToken:market:error:">+ createRequestForSearchWithQuery:queryType:offset:accessToken:market:error:</option>
+		
+		<option value="//api/name/performSearchWithQuery:queryType:accessToken:callback:">+ performSearchWithQuery:queryType:accessToken:callback:</option>
+		
+		<option value="//api/name/performSearchWithQuery:queryType:accessToken:market:callback:">+ performSearchWithQuery:queryType:accessToken:market:callback:</option>
+		
+		<option value="//api/name/performSearchWithQuery:queryType:offset:accessToken:callback:">+ performSearchWithQuery:queryType:offset:accessToken:callback:</option>
+		
+		<option value="//api/name/performSearchWithQuery:queryType:offset:accessToken:market:callback:">+ performSearchWithQuery:queryType:offset:accessToken:market:callback:</option>
+		
+		<option value="//api/name/searchResultsFromData:withResponse:queryType:error:">+ searchResultsFromData:withResponse:queryType:error:</option>
+		
+		<option value="//api/name/searchResultsFromDecodedJSON:queryType:error:">+ searchResultsFromDecodedJSON:queryType:error:</option>
+		
+	</optgroup>
+	
+
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">SPTSearch Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>SPTSearch.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>This class provides helpers for using the search features in the Spotify API, See: <a href="https://developer.spotify.com/web-api/console/search/">https://developer.spotify.com/web-api/console/search/</a></p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						<a title="Search" name="task_Search"></a>
+						<h2 class="task-title">Search</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/performSearchWithQuery:queryType:offset:accessToken:market:callback:" title="performSearchWithQuery:queryType:offset:accessToken:market:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/performSearchWithQuery:queryType:offset:accessToken:market:callback:">+&nbsp;performSearchWithQuery:queryType:offset:accessToken:market:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Performs a search with a given query, offset and market filtering</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)performSearchWithQuery:(NSString *)<em>searchQuery</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> offset:(NSInteger)<em>offset</em> accessToken:(NSString *)<em>accessToken</em> market:(NSString *)<em>market</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQuery</code></th>
+						<td><p>The query to pass to the search.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQueryType</code></th>
+						<td><p>The type of search to do.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>offset</code></th>
+						<td><p>The index at which to start returning results.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token, or <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>market</code></th>
+						<td><p>Either a ISO 3166-1 country code to filter the results to, or &ldquo;from_token&rdquo; (<code>SPTMarketFromToken</code>) to pick the market from the session (requires the <code>user-read-private</code> scope), or <code>nil</code> for no market filtering.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass an <a href="../Classes/SPTListPage.html"><code>SPTListPage</code></a> containing results on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This is a convenience method around the createRequest equivalent and the current <a href="../Protocols/SPTRequestHandlerProtocol.html"><code>SPTRequestHandlerProtocol</code></a></p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTSearch.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForSearchWithQuery:queryType:offset:accessToken:market:error:" title="createRequestForSearchWithQuery:queryType:offset:accessToken:market:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForSearchWithQuery:queryType:offset:accessToken:market:error:">+&nbsp;createRequestForSearchWithQuery:queryType:offset:accessToken:market:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request for searching with a given query, offset and market filtering</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForSearchWithQuery:(NSString *)<em>searchQuery</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> offset:(NSInteger)<em>offset</em> accessToken:(NSString *)<em>accessToken</em> market:(NSString *)<em>market</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQuery</code></th>
+						<td><p>The query to pass to the search.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQueryType</code></th>
+						<td><p>The type of search to do.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>offset</code></th>
+						<td><p>The index at which to start returning results.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token, or <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>market</code></th>
+						<td><p>Either a ISO 3166-1 country code to filter the results to, or &ldquo;from_token&rdquo; (<code>SPTMarketFromToken</code>) to pick the market from the session (requires the <code>user-read-private</code> scope), or <code>nil</code> for no market filtering.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to an <code>NSError</code> that will receive the error code if operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTSearch.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/performSearchWithQuery:queryType:accessToken:market:callback:" title="performSearchWithQuery:queryType:accessToken:market:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/performSearchWithQuery:queryType:accessToken:market:callback:">+&nbsp;performSearchWithQuery:queryType:accessToken:market:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Performs a search with a given query and market filtering</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)performSearchWithQuery:(NSString *)<em>searchQuery</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> accessToken:(NSString *)<em>accessToken</em> market:(NSString *)<em>market</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQuery</code></th>
+						<td><p>The query to pass to the search.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQueryType</code></th>
+						<td><p>The type of search to do.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token, or <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>market</code></th>
+						<td><p>Either a ISO 3166-1 country code to filter the results to, or <code>from_token</code> to pick the market from the session (requires the <code>user-read-private</code> scope), or <code>nil</code> for no market filtering.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass an <a href="../Classes/SPTListPage.html"><code>SPTListPage</code></a> containing results on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This is a convenience method around the createRequest equivalent and the current <a href="../Protocols/SPTRequestHandlerProtocol.html"><code>SPTRequestHandlerProtocol</code></a></p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTSearch.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForSearchWithQuery:queryType:accessToken:market:error:" title="createRequestForSearchWithQuery:queryType:accessToken:market:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForSearchWithQuery:queryType:accessToken:market:error:">+&nbsp;createRequestForSearchWithQuery:queryType:accessToken:market:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Createa a query for searching with a given query and market filtering</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForSearchWithQuery:(NSString *)<em>searchQuery</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> accessToken:(NSString *)<em>accessToken</em> market:(NSString *)<em>market</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQuery</code></th>
+						<td><p>The query to pass to the search.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQueryType</code></th>
+						<td><p>The type of search to do.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token, or <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>market</code></th>
+						<td><p>Either a ISO 3166-1 country code to filter the results to, or <code>from_token</code> to pick the market from the session (requires the <code>user-read-private</code> scope), or <code>nil</code> for no market filtering.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to an <code>NSError</code> that will receive the error code if operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTSearch.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/performSearchWithQuery:queryType:offset:accessToken:callback:" title="performSearchWithQuery:queryType:offset:accessToken:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/performSearchWithQuery:queryType:offset:accessToken:callback:">+&nbsp;performSearchWithQuery:queryType:offset:accessToken:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Performs a search with a given query and offset</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)performSearchWithQuery:(NSString *)<em>searchQuery</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> offset:(NSInteger)<em>offset</em> accessToken:(NSString *)<em>accessToken</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQuery</code></th>
+						<td><p>The query to pass to the search.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQueryType</code></th>
+						<td><p>The type of search to do.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>offset</code></th>
+						<td><p>The index at which to start returning results.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token, or <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass an <a href="../Classes/SPTListPage.html"><code>SPTListPage</code></a> containing results on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This is a convenience method around the createRequest equivalent and the current <a href="../Protocols/SPTRequestHandlerProtocol.html"><code>SPTRequestHandlerProtocol</code></a></p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTSearch.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForSearchWithQuery:queryType:offset:accessToken:error:" title="createRequestForSearchWithQuery:queryType:offset:accessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForSearchWithQuery:queryType:offset:accessToken:error:">+&nbsp;createRequestForSearchWithQuery:queryType:offset:accessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request for searching with a given query and offset</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForSearchWithQuery:(NSString *)<em>searchQuery</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> offset:(NSInteger)<em>offset</em> accessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQuery</code></th>
+						<td><p>The query to pass to the search.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQueryType</code></th>
+						<td><p>The type of search to do.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>offset</code></th>
+						<td><p>The index at which to start returning results.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token, or <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to an <code>NSError</code> that will receive the error code if operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTSearch.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/performSearchWithQuery:queryType:accessToken:callback:" title="performSearchWithQuery:queryType:accessToken:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/performSearchWithQuery:queryType:accessToken:callback:">+&nbsp;performSearchWithQuery:queryType:accessToken:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Performs a search with a given query.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)performSearchWithQuery:(NSString *)<em>searchQuery</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> accessToken:(NSString *)<em>accessToken</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQuery</code></th>
+						<td><p>The query to pass to the search.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQueryType</code></th>
+						<td><p>The type of search to do.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token, or <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass an <a href="../Classes/SPTListPage.html"><code>SPTListPage</code></a> containing results on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This is a convenience method around the createRequest equivalent and the current <a href="../Protocols/SPTRequestHandlerProtocol.html"><code>SPTRequestHandlerProtocol</code></a></p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTSearch.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForSearchWithQuery:queryType:accessToken:error:" title="createRequestForSearchWithQuery:queryType:accessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForSearchWithQuery:queryType:accessToken:error:">+&nbsp;createRequestForSearchWithQuery:queryType:accessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request for searching with a given query.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForSearchWithQuery:(NSString *)<em>searchQuery</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> accessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQuery</code></th>
+						<td><p>The query to pass to the search.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQueryType</code></th>
+						<td><p>The type of search to do.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token, or <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to an <code>NSError</code> that will receive the error code if operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTSearch.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Parsers / Deserializers" name="task_Parsers / Deserializers"></a>
+						<h2 class="task-title">Parsers / Deserializers</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/searchResultsFromData:withResponse:queryType:error:" title="searchResultsFromData:withResponse:queryType:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/searchResultsFromData:withResponse:queryType:error:">+&nbsp;searchResultsFromData:withResponse:queryType:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Parse the response from createRequestForSearch into a list of search results</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (SPTListPage *)searchResultsFromData:(NSData *)<em>data</em> withResponse:(NSURLResponse *)<em>response</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>data</code></th>
+						<td><p>The API response data</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>response</code></th>
+						<td><p>The API response object</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQueryType</code></th>
+						<td><p>The type of search to do.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to an <code>NSError</code> that will receive the error code if operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The list of search results as an <a href="../Classes/SPTListPage.html"><code>SPTListPage</code></a> object</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTSearch.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/searchResultsFromDecodedJSON:queryType:error:" title="searchResultsFromDecodedJSON:queryType:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/searchResultsFromDecodedJSON:queryType:error:">+&nbsp;searchResultsFromDecodedJSON:queryType:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Parse the response from createRequestForSearch into a list of search results</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (SPTListPage *)searchResultsFromDecodedJSON:(id)<em>decodedObject</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>decodedObject</code></th>
+						<td><p>The decoded JSON object structure</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQueryType</code></th>
+						<td><p>The type of search to do.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to an <code>NSError</code> that will receive the error code if operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The list of search results as an <a href="../Classes/SPTListPage.html"><code>SPTListPage</code></a> object</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTSearch.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2016 Spotify AB. All rights reserved. Updated: 2016-06-30</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>SPTRequest Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">Spotify iOS SDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Spotify AB</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/createRequestForURL:withAccessToken:httpMethod:values:valueBodyIsJSON:sendDataAsQueryString:error:">+ createRequestForURL:withAccessToken:httpMethod:values:valueBodyIsJSON:sendDataAsQueryString:error:</option>
+		
+		<option value="//api/name/performSearchWithQuery:queryType:offset:session:callback:">+ performSearchWithQuery:queryType:offset:session:callback:</option>
+		
+		<option value="//api/name/performSearchWithQuery:queryType:offset:session:market:callback:">+ performSearchWithQuery:queryType:offset:session:market:callback:</option>
+		
+		<option value="//api/name/performSearchWithQuery:queryType:session:callback:">+ performSearchWithQuery:queryType:session:callback:</option>
+		
+		<option value="//api/name/performSearchWithQuery:queryType:session:market:callback:">+ performSearchWithQuery:queryType:session:market:callback:</option>
+		
+		<option value="//api/name/playlistsForUser:withSession:callback:">+ playlistsForUser:withSession:callback:</option>
+		
+		<option value="//api/name/playlistsForUserInSession:callback:">+ playlistsForUserInSession:callback:</option>
+		
+		<option value="//api/name/removeTracksFromSaved:forUserInSession:callback:">+ removeTracksFromSaved:forUserInSession:callback:</option>
+		
+		<option value="//api/name/requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:session:callback:">+ requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:session:callback:</option>
+		
+		<option value="//api/name/requestItemAtURI:withSession:callback:">+ requestItemAtURI:withSession:callback:</option>
+		
+		<option value="//api/name/requestItemAtURI:withSession:market:callback:">+ requestItemAtURI:withSession:market:callback:</option>
+		
+		<option value="//api/name/requestItemFromPartialObject:withSession:callback:">+ requestItemFromPartialObject:withSession:callback:</option>
+		
+		<option value="//api/name/requestItemFromPartialObject:withSession:market:callback:">+ requestItemFromPartialObject:withSession:market:callback:</option>
+		
+		<option value="//api/name/requestNewReleasesForCountry:limit:offset:session:callback:">+ requestNewReleasesForCountry:limit:offset:session:callback:</option>
+		
+		<option value="//api/name/saveTracks:forUserInSession:callback:">+ saveTracks:forUserInSession:callback:</option>
+		
+		<option value="//api/name/savedTracksContains:forUserInSession:callback:">+ savedTracksContains:forUserInSession:callback:</option>
+		
+		<option value="//api/name/savedTracksForUserInSession:callback:">+ savedTracksForUserInSession:callback:</option>
+		
+		<option value="//api/name/setSharedHandler:">+ setSharedHandler:</option>
+		
+		<option value="//api/name/sharedHandler">+ sharedHandler</option>
+		
+		<option value="//api/name/starredListForUserInSession:callback:">+ starredListForUserInSession:callback:</option>
+		
+		<option value="//api/name/userInformationForUserInSession:callback:">+ userInformationForUserInSession:callback:</option>
+		
+	</optgroup>
+	
+
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">SPTRequest Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>SPTRequest.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>This class provides convenience methods for talking to the Spotify Web API and wraps a customizable handler for requests which are used by those convenience methods.</p>
+
+<p>All the functions for direct access to the api inside this class has been deprecated and moved out to their respective classes, for getting track metadata, look at <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a>, for getting featured playlists in browse, look at <a href="../Classes/SPTBrowse.html"><code>SPTBrowse</code></a> and so on.</p>
+
+<p>All model classes provide both convenience methods for getting content in the callback fashion, but also provides methods named <code>createRequestFor...</code> for creating <code>NSURLRequests</code> for calling the api directly with the request handler of choice, this allows you to do caching, cancellation and scheduling of calls in your own way. The model classes also provides methods for parsing a API Response back into a usable object, those are called <code>...fromData:withResponse:error</code>, pluralized methods for getting multiple entities at once are also available when appropriate.</p>
+
+<p>Example of using the API request creation / API response parser paradigm:</p>
+
+<pre><code>// Getting the first two pages of a playlists for a user
+NSURLRequest *playlistrequest = [SPTPlaylistList createRequestForGettingPlaylistsForUser:@"possan" withAccessToken:accessToken error:nil];
+[[SPTRequest sharedHandler] performRequest:playlistrequest callback:^(NSError *error, NSURLResponse *response, NSData *data) {
+    if (error != nil) { Handle error }
+    SPTPlaylistList *playlists = [SPTPlaylistList playlistListFromData:data withResponse:response error:nil];
+    NSLog(@"Got possan's playlists, first page: %@", playlists);
+    NSURLRequest *playlistrequest2 = [playlists createRequestForNextPageWithAccessToken:accessToken error:nil];
+    [[SPTRequest sharedHandler] performRequest:playlistrequest2 callback:^(NSError *error2, NSURLResponse *response2, NSData *data2) {
+        if (error2 != nil) { Handle error }
+        SPTPlaylistList *playlists2 = [SPTPlaylistList playlistListFromData:data2 withResponse:response2 error:nil];
+        NSLog(@"Got possan's playlists, second page: %@", playlists2);
+    }];
+}];
+</code></pre>
+
+<p>Example without response body:</p>
+
+<pre><code>// Following a user
+NSURLRequest *req = [SPTFollow createRequestForFollowingUsers:@[@"possan"]] withAccessToken:accessToken error:nil];
+[[SPTRequest sharedHandler] performRequest:req callback:^(NSError *error, NSURLResponse *response, NSData *data) {
+    long statusCode = ((NSHTTPURLResponse*)response).statusCode;
+    switch (statusCode) {
+        case 204:
+            NSLog(@"Successfully followed user.");
+            break;
+        case 401:
+        case 403:
+            NSLog(@"Failed to follow user, are you sure your token is valid and have the correct scopes?");
+            break;
+        default:
+            NSLog(@"Bork bork!");
+            break;
+    }
+}];
+</code></pre>
+
+<p>Example of using convenience methods:</p>
+
+<pre><code>// Getting multiple artists
+[SPTArtist artistsWithURIs:@[
+        [NSURL URLWithString:@"spotify:artist:30Y7JOpiNgAGEhnkYPdI1P"],
+        [NSURL URLWithString:@"spotify:artist:0jO0TlgxW9Il5JphAWzhR4"],
+        [NSURL URLWithString:@"spotify:artist:0AKlaf8M1k8NjJp1uCOlTA"]
+    ]
+    accessToken:accessToken callback:^(NSError *error, id object) {
+        NSLog(@"Got artists: %@", object);
+    }];
+</code></pre>
+
+<p>API Console: <a href="https://developer.spotify.com/web-api/console">https://developer.spotify.com/web-api/console</a></p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						<a title="Request handler" name="task_Request handler"></a>
+						<h2 class="task-title">Request handler</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/sharedHandler" title="sharedHandler"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sharedHandler">+&nbsp;sharedHandler</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get a request handler</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (id&lt;SPTRequestHandlerProtocol&gt;)sharedHandler</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setSharedHandler:" title="setSharedHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setSharedHandler:">+&nbsp;setSharedHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Override the default request handler, this is where you&rsquo;d implement your own if you want to, or use AFNetworking or similar</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)setSharedHandler:(id&lt;SPTRequestHandlerProtocol&gt;)<em>handler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>handler</code></th>
+						<td><p>New handler for requests</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Generic Requests" name="task_Generic Requests"></a>
+						<h2 class="task-title">Generic Requests</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/requestItemAtURI:withSession:callback:" title="requestItemAtURI:withSession:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestItemAtURI:withSession:callback:">+&nbsp;requestItemAtURI:withSession:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request the item at the given Spotify URI.</p>
+
+<p>This method is deprecated, use the helpers in each individual object class instead.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)requestItemAtURI:(NSURL *)<em>uri</em> withSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>uri</code></th>
+						<td><p>The Spotify URI of the item to request.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Can be <code>nil</code> depending on the URI.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass a Spotify SDK metadata object on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example: <code></code>SPTTrack<code> trackWithURI:session:callback:</code> or `<a href="../Classes/SPTPlaylistSnapshot.html">SPTPlaylistSnapshot</a> playlistWithURI:session:callback</p><div class="note"><p><strong>Note:</strong> This method takes Spotify URIs in the form <code>spotify:*</code>, NOT HTTP URLs.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/requestItemAtURI:withSession:market:callback:" title="requestItemAtURI:withSession:market:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestItemAtURI:withSession:market:callback:">+&nbsp;requestItemAtURI:withSession:market:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request the item at the given Spotify URI.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)requestItemAtURI:(NSURL *)<em>uri</em> withSession:(SPTSession *)<em>session</em> market:(NSString *)<em>market</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>uri</code></th>
+						<td><p>The Spotify URI of the item to request.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Can be <code>nil</code> depending on the URI.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>market</code></th>
+						<td><p>Either a ISO 3166-1 country code to filter the results to, or &ldquo;from_token&rdquo; (<code>SPTMarketFromToken</code>) to pick the market from the session (requires the <code>user-read-private</code> scope), or <code>nil</code> for no market filtering.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass a Spotify SDK metadata object on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This method takes Spotify URIs in the form <code>spotify:*</code>, NOT HTTP URLs.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/requestItemFromPartialObject:withSession:callback:" title="requestItemFromPartialObject:withSession:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestItemFromPartialObject:withSession:callback:">+&nbsp;requestItemFromPartialObject:withSession:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Convert an <a href="../Protocols/SPTPartialObject.html"><code>SPTPartialObject</code></a> into a &ldquo;full&rdquo; metadata object.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)requestItemFromPartialObject:(id&lt;SPTPartialObject&gt;)<em>partialObject</em> withSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>partialObject</code></th>
+						<td><p>The object to promote to a &ldquo;full&rdquo; object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Can be <code>nil</code> depending on the URI.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass a Spotify SDK metadata object on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Use the appropriate <code>...WithURI</code> method in the full metadata object instead.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/requestItemFromPartialObject:withSession:market:callback:" title="requestItemFromPartialObject:withSession:market:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestItemFromPartialObject:withSession:market:callback:">+&nbsp;requestItemFromPartialObject:withSession:market:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Convert an <a href="../Protocols/SPTPartialObject.html"><code>SPTPartialObject</code></a> into a &ldquo;full&rdquo; metadata object.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)requestItemFromPartialObject:(id&lt;SPTPartialObject&gt;)<em>partialObject</em> withSession:(SPTSession *)<em>session</em> market:(NSString *)<em>market</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>partialObject</code></th>
+						<td><p>The object to promote to a &ldquo;full&rdquo; object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Can be <code>nil</code> depending on the URI.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>market</code></th>
+						<td><p>Either a ISO 3166-1 country code to filter the results to, or &ldquo;from_token&rdquo; (<code>SPTMarketFromToken</code>) to pick the market from the session (requires the <code>user-read-private</code> scope), or <code>nil</code> for no market filtering.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass a Spotify SDK metadata object on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Use the appropriate <code>...WithURI</code> method in the full metadata object instead.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Request creation helpers" name="task_Request creation helpers"></a>
+						<h2 class="task-title">Request creation helpers</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/createRequestForURL:withAccessToken:httpMethod:values:valueBodyIsJSON:sendDataAsQueryString:error:" title="createRequestForURL:withAccessToken:httpMethod:values:valueBodyIsJSON:sendDataAsQueryString:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForURL:withAccessToken:httpMethod:values:valueBodyIsJSON:sendDataAsQueryString:error:">+&nbsp;createRequestForURL:withAccessToken:httpMethod:values:valueBodyIsJSON:sendDataAsQueryString:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Helper function for creates an authenticated <code>NSURLRequest</code> for a Spotify API resource.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForURL:(NSURL *)<em>url</em> withAccessToken:(NSString *)<em>accessToken</em> httpMethod:(NSString *)<em>httpMethod</em> values:(id)<em>values</em> valueBodyIsJSON:(BOOL)<em>encodeAsJSON</em> sendDataAsQueryString:(BOOL)<em>dataAsQueryString</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>url</code></th>
+						<td><p>The HTTPS URL to request, this is a Spotify API URL, not a spotify URI.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token, or <code>nil</code> if authentication isn&rsquo;t needed.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>httpMethod</code></th>
+						<td><p>The HTTP method to use eg. <code>GET</code> <code>POST</code> etc.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>values</code></th>
+						<td><p>The arguments to send to the URL</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>encodeAsJSON</code></th>
+						<td><p>Encode arguments as an JSON object in the body of the request instead of QueryString encoding them.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>dataAsQueryString</code></th>
+						<td><p>Send arguments as a part of the query string instead of in the body of the request.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional <code>NSError</code> that will receive an error if request creation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <code>NSURLRequest</code></p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Playlists" name="task_Playlists"></a>
+						<h2 class="task-title">Playlists</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/playlistsForUserInSession:callback:" title="playlistsForUserInSession:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playlistsForUserInSession:callback:">+&nbsp;playlistsForUserInSession:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get the authenticated user&rsquo;s playlist list.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)playlistsForUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Must be valid and authenticated with the
+<code>SPTAuthPlaylistReadScope</code> or <code>SPTAuthPlaylistReadPrivateScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass an <a href="../Classes/SPTPlaylistList.html"><code>SPTPlaylistList</code></a> object on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method is moved to the <a href="../Classes/SPTPlaylistList.html"><code>SPTPlaylistList</code></a> class.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playlistsForUser:withSession:callback:" title="playlistsForUser:withSession:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playlistsForUser:withSession:callback:">+&nbsp;playlistsForUser:withSession:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get the a user&rsquo;s playlist list.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)playlistsForUser:(NSString *)<em>username</em> withSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>username</code></th>
+						<td><p>The username of the user to get playlists for.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Must be valid and authenticated with the <code>SPTAuthPlaylistReadScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass an <a href="../Classes/SPTPlaylistList.html"><code>SPTPlaylistList</code></a> object on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method is moved to the <a href="../Classes/SPTPlaylistList.html"><code>SPTPlaylistList</code></a> class.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/starredListForUserInSession:callback:" title="starredListForUserInSession:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/starredListForUserInSession:callback:">+&nbsp;starredListForUserInSession:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get the authenticated user&rsquo;s starred playlist.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)starredListForUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Must be valid and authenticated with the
+<code>SPTAuthPlaylistReadScope</code> or <code>SPTAuthPlaylistReadPrivateScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass an <a href="../Classes/SPTPlaylistSnapshot.html"><code>SPTPlaylistSnapshot</code></a> object on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method is moved to the <a href="../Classes/SPTPlaylistSnapshot.html"><code>SPTPlaylistSnapshot</code></a> class.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="User Information" name="task_User Information"></a>
+						<h2 class="task-title">User Information</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/userInformationForUserInSession:callback:" title="userInformationForUserInSession:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/userInformationForUserInSession:callback:">+&nbsp;userInformationForUserInSession:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get the authenticated user&rsquo;s information.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)userInformationForUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Must be valid and authenticated with the
+scopes required for the information you require. See the <a href="../Classes/SPTUser.html"><code>SPTUser</code></a> documentation for details.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass an <a href="../Classes/SPTUser.html"><code>SPTUser</code></a> object on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method is moved to the <a href="../Classes/SPTUser.html"><code>SPTUser</code></a> class.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/SPTUser.html">SPTUser</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Search" name="task_Search"></a>
+						<h2 class="task-title">Search</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/performSearchWithQuery:queryType:offset:session:market:callback:" title="performSearchWithQuery:queryType:offset:session:market:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/performSearchWithQuery:queryType:offset:session:market:callback:">+&nbsp;performSearchWithQuery:queryType:offset:session:market:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Performs a search with a given query, offset and market filtering</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)performSearchWithQuery:(NSString *)<em>searchQuery</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> offset:(NSInteger)<em>offset</em> session:(SPTSession *)<em>session</em> market:(NSString *)<em>market</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQuery</code></th>
+						<td><p>The query to pass to the search.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQueryType</code></th>
+						<td><p>The type of search to do.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>offset</code></th>
+						<td><p>The index at which to start returning results.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Can be <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>market</code></th>
+						<td><p>Either a ISO 3166-1 country code to filter the results to, or &ldquo;from_token&rdquo; (<code>SPTMarketFromToken</code>) to pick the market from the session (requires the <code>user-read-private</code> scope), or <code>nil</code> for no market filtering.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass an <a href="../Classes/SPTListPage.html"><code>SPTListPage</code></a> containing results on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method is moved to the <a href="../Classes/SPTSearch.html"><code>SPTSearch</code></a> class.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/performSearchWithQuery:queryType:session:market:callback:" title="performSearchWithQuery:queryType:session:market:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/performSearchWithQuery:queryType:session:market:callback:">+&nbsp;performSearchWithQuery:queryType:session:market:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Performs a search with a given query and market filtering</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)performSearchWithQuery:(NSString *)<em>searchQuery</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> session:(SPTSession *)<em>session</em> market:(NSString *)<em>market</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQuery</code></th>
+						<td><p>The query to pass to the search.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQueryType</code></th>
+						<td><p>The type of search to do.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Can be <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>market</code></th>
+						<td><p>Either a ISO 3166-1 country code to filter the results to, or <code>from_token</code> to pick the market from the session (requires the <code>user-read-private</code> scope), or <code>nil</code> for no market filtering.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass an <a href="../Classes/SPTListPage.html"><code>SPTListPage</code></a> containing results on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method is moved to the <a href="../Classes/SPTSearch.html"><code>SPTSearch</code></a> class.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/performSearchWithQuery:queryType:offset:session:callback:" title="performSearchWithQuery:queryType:offset:session:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/performSearchWithQuery:queryType:offset:session:callback:">+&nbsp;performSearchWithQuery:queryType:offset:session:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Performs a search with a given query and offset</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)performSearchWithQuery:(NSString *)<em>searchQuery</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> offset:(NSInteger)<em>offset</em> session:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQuery</code></th>
+						<td><p>The query to pass to the search.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQueryType</code></th>
+						<td><p>The type of search to do.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>offset</code></th>
+						<td><p>The index at which to start returning results.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Can be <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass an <a href="../Classes/SPTListPage.html"><code>SPTListPage</code></a> containing results on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method is moved to the <a href="../Classes/SPTSearch.html"><code>SPTSearch</code></a> class.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/performSearchWithQuery:queryType:session:callback:" title="performSearchWithQuery:queryType:session:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/performSearchWithQuery:queryType:session:callback:">+&nbsp;performSearchWithQuery:queryType:session:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Performs a search with a given query.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)performSearchWithQuery:(NSString *)<em>searchQuery</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> session:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQuery</code></th>
+						<td><p>The query to pass to the search.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>searchQueryType</code></th>
+						<td><p>The type of search to do.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Can be <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass an <a href="../Classes/SPTListPage.html"><code>SPTListPage</code></a> containing results on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method is moved to the <a href="../Classes/SPTSearch.html"><code>SPTSearch</code></a> class.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Your Music Library" name="task_Your Music Library"></a>
+						<h2 class="task-title">Your Music Library</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/savedTracksForUserInSession:callback:" title="savedTracksForUserInSession:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/savedTracksForUserInSession:callback:">+&nbsp;savedTracksForUserInSession:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets the authenticated user&rsquo;s Your Music Library tracks</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)savedTracksForUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Must be valid and authenticated with the
+<code>SPTAuthUserLibraryRead</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block will pass an <a href="../Classes/SPTListPage.html"><code>SPTListPage</code></a> containing results on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method is moved to the <a href="../Classes/SPTYourMusic.html"><code>SPTYourMusic</code></a> class.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/saveTracks:forUserInSession:callback:" title="saveTracks:forUserInSession:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/saveTracks:forUserInSession:callback:">+&nbsp;saveTracks:forUserInSession:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Adds a set of tracks to the authenticated user&rsquo;s Your Music Library.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)saveTracks:(NSArray *)<em>tracks</em> forUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>An array of <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a> or <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> objects.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Must be valid and authenticated with the
+<code>SPTAuthUserLibraryModify</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method is moved to the <a href="../Classes/SPTYourMusic.html"><code>SPTYourMusic</code></a> class.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/savedTracksContains:forUserInSession:callback:" title="savedTracksContains:forUserInSession:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/savedTracksContains:forUserInSession:callback:">+&nbsp;savedTracksContains:forUserInSession:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Checks whether the authenticated user&rsquo;s Your Music Library contains a set of tracks.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)savedTracksContains:(NSArray *)<em>tracks</em> forUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>An array of <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a> or <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> objects.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Must be valid and authenticated with the
+<code>SPTAuthUserLibraryRead</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass an NSArray of Bool values on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method is moved to the <a href="../Classes/SPTYourMusic.html"><code>SPTYourMusic</code></a> class.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeTracksFromSaved:forUserInSession:callback:" title="removeTracksFromSaved:forUserInSession:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeTracksFromSaved:forUserInSession:callback:">+&nbsp;removeTracksFromSaved:forUserInSession:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes a set of tracks from the authenticated user&rsquo;s Your Music Library.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)removeTracksFromSaved:(NSArray *)<em>tracks</em> forUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>An array of <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a> or <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> objects.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Must be valid and authenticated with the
+<code>SPTAuthUserLibraryModify</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method is moved to the <a href="../Classes/SPTYourMusic.html"><code>SPTYourMusic</code></a> class.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Browse" name="task_Browse"></a>
+						<h2 class="task-title">Browse</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:session:callback:" title="requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:session:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:session:callback:">+&nbsp;requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:session:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get a list of featured playlists</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)requestFeaturedPlaylistsForCountry:(NSString *)<em>country</em> limit:(NSInteger)<em>limit</em> offset:(NSInteger)<em>offset</em> locale:(NSString *)<em>locale</em> timestamp:(NSDate *)<em>timestamp</em> session:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>country</code></th>
+						<td><p>A ISO 3166-1 country code to get playlists for, or <code>nil</code> to get global recommendations.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>limit</code></th>
+						<td><p>The number of results to return, max 50.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>offset</code></th>
+						<td><p>The index at which to start returning results.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>locale</code></th>
+						<td><p>The locale of the user, for localized recommendations, <code>nil</code> will default to American English.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>timestamp</code></th>
+						<td><p>The time of day to get recommendations for (without timezone), or <code>nil</code> for current local time</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Must be valid and authenticated with the</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete, containing a <a href="../Classes/SPTFeaturedPlaylistList.html"><code>SPTFeaturedPlaylistList</code></a></p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method is moved to the <a href="../Classes/SPTBrowse.html"><code>SPTBrowse</code></a> class.</p>
+
+<p>See <a href="https://developer.spotify.com/web-api/get-list-featured-playlists/">https://developer.spotify.com/web-api/get-list-featured-playlists/</a> for more information on parameters</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/requestNewReleasesForCountry:limit:offset:session:callback:" title="requestNewReleasesForCountry:limit:offset:session:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestNewReleasesForCountry:limit:offset:session:callback:">+&nbsp;requestNewReleasesForCountry:limit:offset:session:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get a list of new releases.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)requestNewReleasesForCountry:(NSString *)<em>country</em> limit:(NSInteger)<em>limit</em> offset:(NSInteger)<em>offset</em> session:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>country</code></th>
+						<td><p>A ISO 3166-1 country code to get releases for, or <code>nil</code> for global releases.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>limit</code></th>
+						<td><p>The number of results to return, max 50.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>offset</code></th>
+						<td><p>The index at which to start returning results.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Must be valid and authenticated with the <code>SPTAuthUserLibraryModify</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete, containing a <a href="../Classes/SPTListPage.html"><code>SPTListPage</code></a></p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method is moved to the <a href="../Classes/SPTBrowse.html"><code>SPTBrowse</code></a> class.</p>
+
+<p>See <a href="https://developer.spotify.com/web-api/get-list-new-releases/">https://developer.spotify.com/web-api/get-list-new-releases/</a> for more information on parameters</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTRequest.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2016 Spotify AB. All rights reserved. Updated: 2016-06-30</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

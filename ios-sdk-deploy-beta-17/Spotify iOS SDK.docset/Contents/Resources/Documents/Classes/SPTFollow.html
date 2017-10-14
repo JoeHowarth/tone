@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>SPTFollow Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">Spotify iOS SDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Spotify AB</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/createRequestForCheckingIfFollowingArtists:withAccessToken:error:">+ createRequestForCheckingIfFollowingArtists:withAccessToken:error:</option>
+		
+		<option value="//api/name/createRequestForCheckingIfFollowingUsers:withAccessToken:error:">+ createRequestForCheckingIfFollowingUsers:withAccessToken:error:</option>
+		
+		<option value="//api/name/createRequestForCheckingIfUsers:areFollowingPlaylist:withAccessToken:error:">+ createRequestForCheckingIfUsers:areFollowingPlaylist:withAccessToken:error:</option>
+		
+		<option value="//api/name/createRequestForFollowingArtists:withAccessToken:error:">+ createRequestForFollowingArtists:withAccessToken:error:</option>
+		
+		<option value="//api/name/createRequestForFollowingPlaylist:withAccessToken:secret:error:">+ createRequestForFollowingPlaylist:withAccessToken:secret:error:</option>
+		
+		<option value="//api/name/createRequestForFollowingUsers:withAccessToken:error:">+ createRequestForFollowingUsers:withAccessToken:error:</option>
+		
+		<option value="//api/name/createRequestForUnfollowingArtists:withAccessToken:error:">+ createRequestForUnfollowingArtists:withAccessToken:error:</option>
+		
+		<option value="//api/name/createRequestForUnfollowingPlaylist:withAccessToken:error:">+ createRequestForUnfollowingPlaylist:withAccessToken:error:</option>
+		
+		<option value="//api/name/createRequestForUnfollowingUsers:withAccessToken:error:">+ createRequestForUnfollowingUsers:withAccessToken:error:</option>
+		
+		<option value="//api/name/followingResultFromData:withResponse:error:">+ followingResultFromData:withResponse:error:</option>
+		
+	</optgroup>
+	
+
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">SPTFollow Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>SPTFollow.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>This class provides helpers for using the follow features in the Spotify API.</p>
+
+<p>API Docs: <a href="https://developer.spotify.com/web-api/web-api-follow-endpoints/">https://developer.spotify.com/web-api/web-api-follow-endpoints/</a></p>
+
+<p>API Console: <a href="https://developer.spotify.com/web-api/console/follow/">https://developer.spotify.com/web-api/console/follow/</a></p>
+
+<p>Example of following a user:</p>
+
+<pre><code>NSURLRequest *req = [SPTFollow createRequestForFollowingUsers:@[@"possan"]] withAccessToken:@"&lt;your accesstoken&gt;" error:nil];
+[[SPTRequest sharedHandler] performRequest:req callback:^(NSError *error, NSURLResponse *response, NSData *data) {
+    long statusCode = ((NSHTTPURLResponse*)response).statusCode;
+    switch (statusCode) {
+        case 204:
+            NSLog(@"Successfully followed user.");
+            break;
+        case 401:
+        case 403:
+            NSLog(@"Failed to follow user, are you sure your token is valid and have the correct scopes?");
+            break;
+        default:
+            NSLog(@"Unknown error");
+            break;
+    }
+}];
+</code></pre>
+
+<p>Example of checking if a user is following a playlist:</p>
+
+<pre><code>NSError *err2 = nil;
+NSURLRequest *req2 = [SPTFollow createRequestForCheckingIfUsers:@[@"possan"]
+    areFollowingPlaylist:[NSURL URLWithString:@"spotify:user:eldloppa:playlist:4irwclB6noltFaHhqZSWRu"]
+    withAccessToken:auth.session.accessToken
+    error:&amp;err2];
+NSLog(@"created request %@", req2);
+[[SPTRequest sharedHandler] performRequest:req2 callback:^(NSError *error, NSURLResponse *response, NSData *data) {
+    NSLog(@"error=%@, response=%@, data=%@", error, response, data);
+    NSArray *arr = [SPTFollow followingResultFromData:data withResponse:response error:nil];
+    NSLog(@"is following? %@", [arr objectAtIndex:0]);
+}];
+</code></pre>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						<a title="API Request Factories" name="task_API Request Factories"></a>
+						<h2 class="task-title">API Request Factories</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/createRequestForFollowingArtists:withAccessToken:error:" title="createRequestForFollowingArtists:withAccessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForFollowingArtists:withAccessToken:error:">+&nbsp;createRequestForFollowingArtists:withAccessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request for making the current user follow a list of artist.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForFollowingArtists:(NSArray *)<em>artistUris</em> withAccessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>artistUris</code></th>
+						<td><p>An array of <code>NSURL</code>s for artist to follow.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid and authenticated access token with the <code>SPTAuthFollowModifyScope</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to a <code>NSError</code> that receives an error if request creation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The created <code>NSURLRequest</code>.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>See <a href="https://developer.spotify.com/web-api/follow-artists-users/">https://developer.spotify.com/web-api/follow-artists-users/</a> for more information on parameters</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTFollow.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForUnfollowingArtists:withAccessToken:error:" title="createRequestForUnfollowingArtists:withAccessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForUnfollowingArtists:withAccessToken:error:">+&nbsp;createRequestForUnfollowingArtists:withAccessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request for making the current user unfollow a list of artists.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForUnfollowingArtists:(NSArray *)<em>artistUris</em> withAccessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>artistUris</code></th>
+						<td><p>An array of <code>NSURL</code>s for artists to unfollow.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid and authenticated access token with the <code>SPTAuthFollowModifyScope</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to a <code>NSError</code> that receives an error if request creation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The created <code>NSURLRequest</code>.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>See <a href="https://developer.spotify.com/web-api/unfollow-artists-users/">https://developer.spotify.com/web-api/unfollow-artists-users/</a> for more information on parameters</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTFollow.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForCheckingIfFollowingArtists:withAccessToken:error:" title="createRequestForCheckingIfFollowingArtists:withAccessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForCheckingIfFollowingArtists:withAccessToken:error:">+&nbsp;createRequestForCheckingIfFollowingArtists:withAccessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request to check if the current user is following a list of artists.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForCheckingIfFollowingArtists:(NSArray *)<em>artistUris</em> withAccessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>artistUris</code></th>
+						<td><p>An array of <code>NSURL</code>s for artists to check.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid and authenticated access token with the <code>SPTAuthFollowModifyScope</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to a <code>NSError</code> that receives an error if request creation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The created <code>NSURLRequest</code>.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Parse the response in to an <code>NSArray</code> of booleans using <code>parseFollowingResultData:withResponse:error</code></p>
+
+<p>See <a href="https://developer.spotify.com/web-api/check-current-user-follows/">https://developer.spotify.com/web-api/check-current-user-follows/</a> for more information on parameters</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTFollow.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForFollowingUsers:withAccessToken:error:" title="createRequestForFollowingUsers:withAccessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForFollowingUsers:withAccessToken:error:">+&nbsp;createRequestForFollowingUsers:withAccessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request to make the current user follow a list of users.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForFollowingUsers:(NSArray *)<em>usernames</em> withAccessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>usernames</code></th>
+						<td><p>An array of <code>NSString</code>s containing spotify usernames to follow.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid and authenticated access token with the <code>SPTAuthFollowModifyScope</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to a <code>NSError</code> that receives an error if request creation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The created <code>NSURLRequest</code>.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>See <a href="https://developer.spotify.com/web-api/follow-artists-users/">https://developer.spotify.com/web-api/follow-artists-users/</a> for more information on parameters</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTFollow.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForUnfollowingUsers:withAccessToken:error:" title="createRequestForUnfollowingUsers:withAccessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForUnfollowingUsers:withAccessToken:error:">+&nbsp;createRequestForUnfollowingUsers:withAccessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request to make the current user unfollow a list of users.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForUnfollowingUsers:(NSArray *)<em>usernames</em> withAccessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>usernames</code></th>
+						<td><p>An array of <code>NSString</code>s containing spotify usernames to unfollow.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid and authenticated access token with the <code>SPTAuthFollowModifyScope</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to a <code>NSError</code> that receives an error if request creation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The created <code>NSURLRequest</code>.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>See <a href="https://developer.spotify.com/web-api/unfollow-artists-users/">https://developer.spotify.com/web-api/unfollow-artists-users/</a> for more information on parameters</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTFollow.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForCheckingIfFollowingUsers:withAccessToken:error:" title="createRequestForCheckingIfFollowingUsers:withAccessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForCheckingIfFollowingUsers:withAccessToken:error:">+&nbsp;createRequestForCheckingIfFollowingUsers:withAccessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request to check if the current user is following a list of users.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForCheckingIfFollowingUsers:(NSArray *)<em>username</em> withAccessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>username</code></th>
+						<td><p>A <code>NSString</code>s containing spotify username to check.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid and authenticated access token with the <code>SPTAuthFollowModifyScope</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to a <code>NSError</code> that receives an error if request creation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The created <code>NSURLRequest</code>.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Parse the response in to an <code>NSArray</code> of booleans using <code>parseFollowingResultData:withResponse:error</code></p>
+
+<p>See <a href="https://developer.spotify.com/web-api/check-current-user-follows/">https://developer.spotify.com/web-api/check-current-user-follows/</a> for more information on parameters</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTFollow.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForFollowingPlaylist:withAccessToken:secret:error:" title="createRequestForFollowingPlaylist:withAccessToken:secret:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForFollowingPlaylist:withAccessToken:secret:error:">+&nbsp;createRequestForFollowingPlaylist:withAccessToken:secret:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request for following a playlist.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForFollowingPlaylist:(NSURL *)<em>playlistUri</em> withAccessToken:(NSString *)<em>accessToken</em> secret:(BOOL)<em>secret</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>playlistUri</code></th>
+						<td><p>The playlist URI to follow.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid and authenticated access token with the <code>SPTAuthPlaylistModifyPrivateScope</code> or <code>SPTAuthPlaylistModifyPublicScope</code> scope depending on if you&rsquo;re following it publicly or not.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>secret</code></th>
+						<td><p>Follow this playlist secretly.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to a <code>NSError</code> that receives an error if request creation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The created <code>NSURLRequest</code>.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>See <a href="https://developer.spotify.com/web-api/get-list-new-releases/">https://developer.spotify.com/web-api/get-list-new-releases/</a> for more information on parameters</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTFollow.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForUnfollowingPlaylist:withAccessToken:error:" title="createRequestForUnfollowingPlaylist:withAccessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForUnfollowingPlaylist:withAccessToken:error:">+&nbsp;createRequestForUnfollowingPlaylist:withAccessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request to check if a user is following a specific playlist.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForUnfollowingPlaylist:(NSURL *)<em>playlistUri</em> withAccessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>playlistUri</code></th>
+						<td><p>A playlist URI.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid and authenticated access token with the <code>SPTAuthFollowModifyScope</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to a <code>NSError</code> that receives an error if request creation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The created <code>NSURLRequest</code>.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>See <a href="https://developer.spotify.com/web-api/get-list-new-releases/">https://developer.spotify.com/web-api/get-list-new-releases/</a> for more information on parameters</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTFollow.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForCheckingIfUsers:areFollowingPlaylist:withAccessToken:error:" title="createRequestForCheckingIfUsers:areFollowingPlaylist:withAccessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForCheckingIfUsers:areFollowingPlaylist:withAccessToken:error:">+&nbsp;createRequestForCheckingIfUsers:areFollowingPlaylist:withAccessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request to check if a user is following a specific playlist.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForCheckingIfUsers:(NSArray *)<em>usernames</em> areFollowingPlaylist:(NSURL *)<em>playlistUri</em> withAccessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>usernames</code></th>
+						<td><p>A list of spotify usernames.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>playlistUri</code></th>
+						<td><p>A playlist URI.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid and authenticated access token with the <code>SPTAuthFollowModifyScope</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to a <code>NSError</code> that receives an error if request creation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The created <code>NSURLRequest</code>.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Parse the response in to an <code>NSArray</code> of booleans using <code>SPTFollow parseFollowingResultData:withResponse:error</code></p>
+
+<p>See <a href="https://developer.spotify.com/web-api/get-list-new-releases/">https://developer.spotify.com/web-api/get-list-new-releases/</a> for more information on parameters</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTFollow.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="API Response Parsers" name="task_API Response Parsers"></a>
+						<h2 class="task-title">API Response Parsers</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/followingResultFromData:withResponse:error:" title="followingResultFromData:withResponse:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/followingResultFromData:withResponse:error:">+&nbsp;followingResultFromData:withResponse:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Parse the result of a &ldquo;am i following this entity&rdquo;-query into an array of booleans</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSArray *)followingResultFromData:(NSData *)<em>data</em> withResponse:(NSURLResponse *)<em>response</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>data</code></th>
+						<td><p>The API response data</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>response</code></th>
+						<td><p>The API response object</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to a <code>NSError</code> that receives an error if request creation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An <code>NSArray</code> of booleans</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTFollow.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2016 Spotify AB. All rights reserved. Updated: 2016-06-30</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

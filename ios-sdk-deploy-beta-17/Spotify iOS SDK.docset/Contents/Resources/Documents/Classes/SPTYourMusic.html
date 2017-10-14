@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>SPTYourMusic Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">Spotify iOS SDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Spotify AB</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/createRequestForCheckingIfSavedTracksContains:forUserWithAccessToken:error:">+ createRequestForCheckingIfSavedTracksContains:forUserWithAccessToken:error:</option>
+		
+		<option value="//api/name/createRequestForCurrentUsersSavedTracksWithAccessToken:error:">+ createRequestForCurrentUsersSavedTracksWithAccessToken:error:</option>
+		
+		<option value="//api/name/createRequestForRemovingTracksFromSaved:forUserWithAccessToken:error:">+ createRequestForRemovingTracksFromSaved:forUserWithAccessToken:error:</option>
+		
+		<option value="//api/name/createRequestForSavingTracks:forUserWithAccessToken:error:">+ createRequestForSavingTracks:forUserWithAccessToken:error:</option>
+		
+		<option value="//api/name/removeTracksFromSaved:forUserWithAccessToken:callback:">+ removeTracksFromSaved:forUserWithAccessToken:callback:</option>
+		
+		<option value="//api/name/saveTracks:forUserWithAccessToken:callback:">+ saveTracks:forUserWithAccessToken:callback:</option>
+		
+		<option value="//api/name/savedTracksContains:forUserWithAccessToken:callback:">+ savedTracksContains:forUserWithAccessToken:callback:</option>
+		
+		<option value="//api/name/savedTracksForUserWithAccessToken:callback:">+ savedTracksForUserWithAccessToken:callback:</option>
+		
+	</optgroup>
+	
+
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">SPTYourMusic Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>SPTYourMusic.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>This class provides helpers for using the your music features in the Spotify API.</p>
+
+<p>API Docs: <a href="https://developer.spotify.com/web-api/browse-endpoints/">https://developer.spotify.com/web-api/browse-endpoints/</a></p>
+
+<p>API Console: <a href="https://developer.spotify.com/web-api/console/user%20library/">https://developer.spotify.com/web-api/console/user%20library/</a></p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						<a title="API Request Factories" name="task_API Request Factories"></a>
+						<h2 class="task-title">API Request Factories</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/createRequestForCurrentUsersSavedTracksWithAccessToken:error:" title="createRequestForCurrentUsersSavedTracksWithAccessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForCurrentUsersSavedTracksWithAccessToken:error:">+&nbsp;createRequestForCurrentUsersSavedTracksWithAccessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request for getting the authenticated user&rsquo;s Your Music library tracks</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForCurrentUsersSavedTracksWithAccessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid and authenticated access token with the <code>SPTAuthUserLibraryRead</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to an <code>NSError</code> that will receive the error code if operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTYourMusic.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForSavingTracks:forUserWithAccessToken:error:" title="createRequestForSavingTracks:forUserWithAccessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForSavingTracks:forUserWithAccessToken:error:">+&nbsp;createRequestForSavingTracks:forUserWithAccessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request for adding a set of tracks to the authenticated user&rsquo;s Your Music library.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForSavingTracks:(NSArray *)<em>tracks</em> forUserWithAccessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>An array of <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a>, <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> or <code>NSURI</code> objects.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid and authenticated access token with the <code>SPTAuthUserLibraryModify</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to an <code>NSError</code> that will receive the error code if operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTYourMusic.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForCheckingIfSavedTracksContains:forUserWithAccessToken:error:" title="createRequestForCheckingIfSavedTracksContains:forUserWithAccessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForCheckingIfSavedTracksContains:forUserWithAccessToken:error:">+&nbsp;createRequestForCheckingIfSavedTracksContains:forUserWithAccessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request for checking whether the authenticated user&rsquo;s Your Music library contains a set of tracks.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForCheckingIfSavedTracksContains:(NSArray *)<em>tracks</em> forUserWithAccessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>An array of <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a>, <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> or <code>NSURL</code> objects.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid and authenticated access token with the <code>SPTAuthUserLibraryRead</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to an <code>NSError</code> that will receive the error code if operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTYourMusic.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForRemovingTracksFromSaved:forUserWithAccessToken:error:" title="createRequestForRemovingTracksFromSaved:forUserWithAccessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForRemovingTracksFromSaved:forUserWithAccessToken:error:">+&nbsp;createRequestForRemovingTracksFromSaved:forUserWithAccessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request for removing a set of tracks from the authenticated user&rsquo;s Your Music library.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForRemovingTracksFromSaved:(NSArray *)<em>tracks</em> forUserWithAccessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>An array of <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a>, <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> or <code>NSURL</code> objects.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid and authenticated access token with the <code>SPTAuthUserLibraryModify</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to an <code>NSError</code> that will receive the error code if operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTYourMusic.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Convenience Methods" name="task_Convenience Methods"></a>
+						<h2 class="task-title">Convenience Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/savedTracksForUserWithAccessToken:callback:" title="savedTracksForUserWithAccessToken:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/savedTracksForUserWithAccessToken:callback:">+&nbsp;savedTracksForUserWithAccessToken:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets the authenticated user&rsquo;s Your Music Library tracks</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)savedTracksForUserWithAccessToken:(NSString *)<em>accessToken</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid and authenticated access token with the <code>SPTAuthUserLibraryRead</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete, with the data set if success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This is a convenience method around the createRequest equivalent and the current <a href="../Protocols/SPTRequestHandlerProtocol.html"><code>SPTRequestHandlerProtocol</code></a></p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTYourMusic.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/saveTracks:forUserWithAccessToken:callback:" title="saveTracks:forUserWithAccessToken:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/saveTracks:forUserWithAccessToken:callback:">+&nbsp;saveTracks:forUserWithAccessToken:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Adds a set of tracks to the authenticated user&rsquo;s Your Music Library.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)saveTracks:(NSArray *)<em>tracks</em> forUserWithAccessToken:(NSString *)<em>accessToken</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>An array of <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a>, <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> or <code>NSURI</code> objects.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid and authenticated access token with the <code>SPTAuthUserLibraryModify</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete, with the data set if success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This is a convenience method around the createRequest equivalent and the current <a href="../Protocols/SPTRequestHandlerProtocol.html"><code>SPTRequestHandlerProtocol</code></a></p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTYourMusic.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/savedTracksContains:forUserWithAccessToken:callback:" title="savedTracksContains:forUserWithAccessToken:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/savedTracksContains:forUserWithAccessToken:callback:">+&nbsp;savedTracksContains:forUserWithAccessToken:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Checks whether the authenticated user&rsquo;s Your Music Library contains a set of tracks.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)savedTracksContains:(NSArray *)<em>tracks</em> forUserWithAccessToken:(NSString *)<em>accessToken</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>An array of <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a>, <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> or <code>NSURI</code> objects.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid and authenticated access token with the <code>SPTAuthUserLibraryRead</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete, with the data set if success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This is a convenience method around the createRequest equivalent and the current <a href="../Protocols/SPTRequestHandlerProtocol.html"><code>SPTRequestHandlerProtocol</code></a></p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTYourMusic.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeTracksFromSaved:forUserWithAccessToken:callback:" title="removeTracksFromSaved:forUserWithAccessToken:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeTracksFromSaved:forUserWithAccessToken:callback:">+&nbsp;removeTracksFromSaved:forUserWithAccessToken:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes a set of tracks from the authenticated user&rsquo;s Your Music Library.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)removeTracksFromSaved:(NSArray *)<em>tracks</em> forUserWithAccessToken:(NSString *)<em>accessToken</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>An array of <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a>, <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> or <code>NSURL</code> objects.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid and authenticated access token  with the <code>SPTAuthUserLibraryModify</code> scope.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete, with the data set if success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This is a convenience method around the createRequest equivalent and the current <a href="../Protocols/SPTRequestHandlerProtocol.html"><code>SPTRequestHandlerProtocol</code></a></p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTYourMusic.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2016 Spotify AB. All rights reserved. Updated: 2016-06-30</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

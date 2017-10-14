@@ -1,0 +1,2126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>SPTPlaylistSnapshot Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">Spotify iOS SDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Spotify AB</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/descriptionText">descriptionText</option>
+		
+		<option value="//api/name/firstTrackPage">firstTrackPage</option>
+		
+		<option value="//api/name/followerCount">followerCount</option>
+		
+		<option value="//api/name/snapshotId">snapshotId</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/createRequestForAddingTracks:atPosition:toPlaylist:withAccessToken:error:">+ createRequestForAddingTracks:atPosition:toPlaylist:withAccessToken:error:</option>
+		
+		<option value="//api/name/createRequestForAddingTracks:toPlaylist:withAccessToken:error:">+ createRequestForAddingTracks:toPlaylist:withAccessToken:error:</option>
+		
+		<option value="//api/name/createRequestForChangingDetails:inPlaylist:withAccessToken:error:">+ createRequestForChangingDetails:inPlaylist:withAccessToken:error:</option>
+		
+		<option value="//api/name/createRequestForPlaylistWithURI:accessToken:error:">+ createRequestForPlaylistWithURI:accessToken:error:</option>
+		
+		<option value="//api/name/createRequestForRemovingTracks:fromPlaylist:withAccessToken:snapshot:error:">+ createRequestForRemovingTracks:fromPlaylist:withAccessToken:snapshot:error:</option>
+		
+		<option value="//api/name/createRequestForRemovingTracksWithPositions:fromPlaylist:withAccessToken:snapshot:error:">+ createRequestForRemovingTracksWithPositions:fromPlaylist:withAccessToken:snapshot:error:</option>
+		
+		<option value="//api/name/createRequestForSettingTracks:inPlaylist:withAccessToken:error:">+ createRequestForSettingTracks:inPlaylist:withAccessToken:error:</option>
+		
+		<option value="//api/name/isPlaylistURI:">+ isPlaylistURI:</option>
+		
+		<option value="//api/name/isStarredURI:">+ isStarredURI:</option>
+		
+		<option value="//api/name/playlistSnapshotFromData:withResponse:error:">+ playlistSnapshotFromData:withResponse:error:</option>
+		
+		<option value="//api/name/playlistSnapshotFromDecodedJSON:error:">+ playlistSnapshotFromDecodedJSON:error:</option>
+		
+		<option value="//api/name/playlistWithURI:accessToken:callback:">+ playlistWithURI:accessToken:callback:</option>
+		
+		<option value="//api/name/playlistWithURI:session:callback:">+ playlistWithURI:session:callback:</option>
+		
+		<option value="//api/name/playlistsWithURIs:session:callback:">+ playlistsWithURIs:session:callback:</option>
+		
+		<option value="//api/name/requestStarredListForUser:withAccessToken:callback:">+ requestStarredListForUser:withAccessToken:callback:</option>
+		
+		<option value="//api/name/requestStarredListForUserWithSession:callback:">+ requestStarredListForUserWithSession:callback:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/addTracksToPlaylist:withAccessToken:callback:">- addTracksToPlaylist:withAccessToken:callback:</option>
+		
+		<option value="//api/name/addTracksToPlaylist:withSession:callback:">- addTracksToPlaylist:withSession:callback:</option>
+		
+		<option value="//api/name/addTracksWithPositionToPlaylist:withPosition:accessToken:callback:">- addTracksWithPositionToPlaylist:withPosition:accessToken:callback:</option>
+		
+		<option value="//api/name/addTracksWithPositionToPlaylist:withPosition:session:callback:">- addTracksWithPositionToPlaylist:withPosition:session:callback:</option>
+		
+		<option value="//api/name/changePlaylistDetails:withAccessToken:callback:">- changePlaylistDetails:withAccessToken:callback:</option>
+		
+		<option value="//api/name/removeTracksFromPlaylist:withAccessToken:callback:">- removeTracksFromPlaylist:withAccessToken:callback:</option>
+		
+		<option value="//api/name/removeTracksWithPositionsFromPlaylist:withAccessToken:callback:">- removeTracksWithPositionsFromPlaylist:withAccessToken:callback:</option>
+		
+		<option value="//api/name/replaceTracksInPlaylist:withAccessToken:callback:">- replaceTracksInPlaylist:withAccessToken:callback:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">SPTPlaylistSnapshot Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/SPTPartialPlaylist.html">SPTPartialPlaylist</a> : <a href="../Classes/SPTJSONObjectBase.html">SPTJSONObjectBase</a> : NSObject</td>
+</tr><tr>
+	<th>Conforms to</th>
+	<td><a href="../Protocols/SPTJSONObject.html">SPTJSONObject</a></td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>SPTPlaylistSnapshot.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Represents a user&rsquo;s playlist on the Spotify service.</p>
+
+<p>API Docs: <a href="https://developer.spotify.com/web-api/playlist-endpoints/">https://developer.spotify.com/web-api/playlist-endpoints/</a></p>
+
+<p>API Console: https://developer.spotify.com/web-api/console/playlists/</p>
+
+<p>API Model: https://developer.spotify.com/web-api/object-model/#playlist-object-full</p>
+
+<p>Playlist Guide: https://developer.spotify.com/web-api/working-with-playlists/</p>
+
+<p>Example:</p>
+
+<pre><code>[SPTPlaylistSnapshot playlistWithURI:[NSURL URLWithString:@"spotify:user:spotify:playlist:2ujjMpFriZ2nayLmrD1Jgl"]
+    accessToken:accessToken
+    callback:^(NSError *error, SPTPlaylistSnapshot *object) {
+        NSLog(@"tracks on page 1 = %@", [object.firstTrackPage tracksForPlayback]);
+        [object.firstTrackPage requestNextPageWithAccessToken:accessToken
+            callback:^(NSError *error, id object) {
+            NSLog(@"tracks on page 2 = %@", [object tracksForPlayback]);
+        }];
+    }];
+</code></pre>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						<a title="Properties" name="task_Properties"></a>
+						<h2 class="task-title">Properties</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/firstTrackPage" title="firstTrackPage"></a>
+	<h3 class="method-title"><code><a href="#//api/name/firstTrackPage">&nbsp;&nbsp;firstTrackPage</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The tracks of the playlist, as a page of <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> objects.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) SPTListPage *firstTrackPage</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/snapshotId" title="snapshotId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/snapshotId">&nbsp;&nbsp;snapshotId</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The version identifier for the playlist.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, copy) NSString *snapshotId</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/followerCount" title="followerCount"></a>
+	<h3 class="method-title"><code><a href="#//api/name/followerCount">&nbsp;&nbsp;followerCount</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The number of followers of this playlist</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) long followerCount</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/descriptionText" title="descriptionText"></a>
+	<h3 class="method-title"><code><a href="#//api/name/descriptionText">&nbsp;&nbsp;descriptionText</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The description of the playlist</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, copy) NSString *descriptionText</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Requesting Playlists" name="task_Requesting Playlists"></a>
+						<h2 class="task-title">Requesting Playlists</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/playlistWithURI:session:callback:" title="playlistWithURI:session:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playlistWithURI:session:callback:">+&nbsp;playlistWithURI:session:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request the playlist at the given Spotify URI.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)playlistWithURI:(NSURL *)<em>uri</em> session:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>uri</code></th>
+						<td><p>The Spotify URI of the playlist to request.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Must be valid and authenticated with the
+<code>SPTAuthPlaylistReadScope</code> or <code>SPTAuthPlaylistReadPrivateScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass a Spotify SDK metadata object on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This method takes Spotify URIs in the form <code>spotify:*</code>, NOT HTTP URLs.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playlistWithURI:accessToken:callback:" title="playlistWithURI:accessToken:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playlistWithURI:accessToken:callback:">+&nbsp;playlistWithURI:accessToken:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request the playlist at the given Spotify URI.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)playlistWithURI:(NSURL *)<em>uri</em> accessToken:(NSString *)<em>accessToken</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>uri</code></th>
+						<td><p>The Spotify URI of the playlist to request.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token authenticated with the <code>SPTAuthPlaylistReadScope</code> or <code>SPTAuthPlaylistReadPrivateScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass a Spotify SDK metadata object on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This method takes Spotify URIs in the form <code>spotify:*</code>, NOT HTTP URLs.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playlistsWithURIs:session:callback:" title="playlistsWithURIs:session:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playlistsWithURIs:session:callback:">+&nbsp;playlistsWithURIs:session:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request multiple playlists given an array of Spotify URIs.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)playlistsWithURIs:(NSArray *)<em>uris</em> session:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>uris</code></th>
+						<td><p>An array of Spotify URIs.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Must be valid and authenticated with the
+<code>SPTAuthPlaylistReadScope</code> or <code>SPTAuthPlaylistReadPrivateScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass an array of Spotify SDK metadata objects on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This method takes an array of Spotify URIs in the form <code>spotify:*</code>, NOT HTTP URLs.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/isPlaylistURI:" title="isPlaylistURI:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isPlaylistURI:">+&nbsp;isPlaylistURI:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Check if a <code>NSURL</code> is a valid playlist uri.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (BOOL)isPlaylistURI:(NSURL *)<em>uri</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>uri</code></th>
+						<td><p>The Spotify URI of the playlist.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/isStarredURI:" title="isStarredURI:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isStarredURI:">+&nbsp;isStarredURI:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Check if a <code>NSURL</code> is a starred uri.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (BOOL)isStarredURI:(NSURL *)<em>uri</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>uri</code></th>
+						<td><p>The Spotify URI of the playlist.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/requestStarredListForUserWithSession:callback:" title="requestStarredListForUserWithSession:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestStarredListForUserWithSession:callback:">+&nbsp;requestStarredListForUserWithSession:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get the authenticated user&rsquo;s starred playlist.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)requestStarredListForUserWithSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Must be valid and authenticated with the
+<code>SPTAuthPlaylistReadScope</code> or <code>SPTAuthPlaylistReadPrivateScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass an <code>SPTPlaylistSnapshot</code> object on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/requestStarredListForUser:withAccessToken:callback:" title="requestStarredListForUser:withAccessToken:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestStarredListForUser:withAccessToken:callback:">+&nbsp;requestStarredListForUser:withAccessToken:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request the starred playlist for a user</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)requestStarredListForUser:(NSString *)<em>username</em> withAccessToken:(NSString *)<em>accessToken</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>username</code></th>
+						<td><p>The user to get the starred playlist for</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid authenticated access token.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is complete. The block will pass an <code>SPTPlaylistSnapshot</code> object on success, otherwise an error.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Helper methods for playlist manipulation" name="task_Helper methods for playlist manipulation"></a>
+						<h2 class="task-title">Helper methods for playlist manipulation</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/addTracksToPlaylist:withSession:callback:" title="addTracksToPlaylist:withSession:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addTracksToPlaylist:withSession:callback:">&ndash;&nbsp;addTracksToPlaylist:withSession:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Append tracks to the playlist.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addTracksToPlaylist:(NSArray *)<em>tracks</em> withSession:(SPTSession *)<em>session</em> callback:(SPTErrorableOperationCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>The tracks to add, as <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a> or <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> objects.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Must be valid and authenticated with the <code>SPTAuthPlaylistModifyScope</code> or <code>SPTAuthPlaylistModifyPrivateScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is started. This block will pass an error if the operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addTracksToPlaylist:withAccessToken:callback:" title="addTracksToPlaylist:withAccessToken:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addTracksToPlaylist:withAccessToken:callback:">&ndash;&nbsp;addTracksToPlaylist:withAccessToken:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Append tracks to the playlist.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addTracksToPlaylist:(NSArray *)<em>tracks</em> withAccessToken:(NSString *)<em>accessToken</em> callback:(SPTErrorableOperationCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>The tracks to add, as <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a> or <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> objects.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token authenticated with the <code>SPTAuthPlaylistModifyPublicScope</code> or <code>SPTAuthPlaylistModifyPrivateScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is started. This block will pass an error if the operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addTracksWithPositionToPlaylist:withPosition:session:callback:" title="addTracksWithPositionToPlaylist:withPosition:session:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addTracksWithPositionToPlaylist:withPosition:session:callback:">&ndash;&nbsp;addTracksWithPositionToPlaylist:withPosition:session:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Add tracks to the playlist at a certain position.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addTracksWithPositionToPlaylist:(NSArray *)<em>tracks</em> withPosition:(int)<em>position</em> session:(SPTSession *)<em>session</em> callback:(SPTErrorableOperationCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>The tracks to add, as <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a> or <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> objects.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>position</code></th>
+						<td><p>The position in which the tracks will be added, being 0 the top position.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>session</code></th>
+						<td><p>An authenticated session. Must be valid and authenticated with the <code>SPTAuthPlaylistModifyScope</code> or <code>SPTAuthPlaylistModifyPrivateScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is started. This block will pass an error if the operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addTracksWithPositionToPlaylist:withPosition:accessToken:callback:" title="addTracksWithPositionToPlaylist:withPosition:accessToken:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addTracksWithPositionToPlaylist:withPosition:accessToken:callback:">&ndash;&nbsp;addTracksWithPositionToPlaylist:withPosition:accessToken:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Add tracks to the playlist at a certain position.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addTracksWithPositionToPlaylist:(NSArray *)<em>tracks</em> withPosition:(int)<em>position</em> accessToken:(NSString *)<em>accessToken</em> callback:(SPTErrorableOperationCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>The tracks to add, as <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a> or <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> objects.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>position</code></th>
+						<td><p>The position in which the tracks will be added, being 0 the top position.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token authenticated with the <code>SPTAuthPlaylistModifyPublicScope</code> or <code>SPTAuthPlaylistModifyPrivateScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is started. This block will pass an error if the operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/replaceTracksInPlaylist:withAccessToken:callback:" title="replaceTracksInPlaylist:withAccessToken:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/replaceTracksInPlaylist:withAccessToken:callback:">&ndash;&nbsp;replaceTracksInPlaylist:withAccessToken:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Replace the tracks in a playlist, overwriting any tracks already in it</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)replaceTracksInPlaylist:(NSArray *)<em>tracks</em> withAccessToken:(NSString *)<em>accessToken</em> callback:(SPTErrorableOperationCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>The tracks to set, as <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a> or <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> objects.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token authenticated with the <code>SPTAuthPlaylistModifyPublicScope</code> or <code>SPTAuthPlaylistModifyPrivateScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is started. This block will pass an error if the operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/changePlaylistDetails:withAccessToken:callback:" title="changePlaylistDetails:withAccessToken:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/changePlaylistDetails:withAccessToken:callback:">&ndash;&nbsp;changePlaylistDetails:withAccessToken:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Change playlist details</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)changePlaylistDetails:(NSDictionary *)<em>data</em> withAccessToken:(NSString *)<em>accessToken</em> callback:(SPTErrorableOperationCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>data</code></th>
+						<td><p>The data to be changed. Use the key constants to refer to the field to change
+(e.g. <code>SPTPlaylistSnapshotNameKey</code>, <code>SPTPlaylistSnapshotPublicKey</code>). When passing boolean values, use @YES or @NO.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token authenticated with the <code>SPTAuthPlaylistModifyPublicScope</code> or <code>SPTAuthPlaylistModifyPrivateScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is started. This block will pass an error if the operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeTracksFromPlaylist:withAccessToken:callback:" title="removeTracksFromPlaylist:withAccessToken:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeTracksFromPlaylist:withAccessToken:callback:">&ndash;&nbsp;removeTracksFromPlaylist:withAccessToken:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Remove tracks from playlist. It removes all occurrences of the tracks in the playlist.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)removeTracksFromPlaylist:(NSArray *)<em>tracks</em> withAccessToken:(NSString *)<em>accessToken</em> callback:(SPTErrorableOperationCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>The tracks to remove, as <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a> or <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> objects.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token authenticated with the <code>SPTAuthPlaylistModifyPublicScope</code> or <code>SPTAuthPlaylistModifyPrivateScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is started. This block will pass an error if the operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeTracksWithPositionsFromPlaylist:withAccessToken:callback:" title="removeTracksWithPositionsFromPlaylist:withAccessToken:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeTracksWithPositionsFromPlaylist:withAccessToken:callback:">&ndash;&nbsp;removeTracksWithPositionsFromPlaylist:withAccessToken:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Remove tracks that are in specific positions from playlist.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)removeTracksWithPositionsFromPlaylist:(NSArray *)<em>tracks</em> withAccessToken:(NSString *)<em>accessToken</em> callback:(SPTErrorableOperationCallback)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>An array of dictionaries with 2 keys: <code>track</code> with the track to remove, as <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a> or <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> objects, and <code>positions</code> that is an array of integers with the positions the track will be removed from.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token authenticated with the <code>SPTAuthPlaylistModifyPublicScope</code> or <code>SPTAuthPlaylistModifyPrivateScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>The block to be called when the operation is started. This block will pass an error if the operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Playlist manipulation request creation methods" name="task_Playlist manipulation request creation methods"></a>
+						<h2 class="task-title">Playlist manipulation request creation methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/createRequestForAddingTracks:toPlaylist:withAccessToken:error:" title="createRequestForAddingTracks:toPlaylist:withAccessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForAddingTracks:toPlaylist:withAccessToken:error:">+&nbsp;createRequestForAddingTracks:toPlaylist:withAccessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request for appending tracks to a playlist.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForAddingTracks:(NSArray *)<em>tracks</em> toPlaylist:(NSURL *)<em>playlist</em> withAccessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>The tracks to add, as <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a>, <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> or <code>NSURL</code> objects.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>playlist</code></th>
+						<td><p>The playlist to manipulate.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token authenticated with the <code>SPTAuthPlaylistModifyPublicScope</code> or <code>SPTAuthPlaylistModifyPrivateScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to a <code>NSError</code> object that will be set if an error occured.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <code>NSURLRequest</code> object</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForAddingTracks:atPosition:toPlaylist:withAccessToken:error:" title="createRequestForAddingTracks:atPosition:toPlaylist:withAccessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForAddingTracks:atPosition:toPlaylist:withAccessToken:error:">+&nbsp;createRequestForAddingTracks:atPosition:toPlaylist:withAccessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request for adding tracks to the playlist at a certain position.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForAddingTracks:(NSArray *)<em>tracks</em> atPosition:(int)<em>position</em> toPlaylist:(NSURL *)<em>playlist</em> withAccessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>The tracks to add, as <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a>, <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> or <code>NSURL</code> objects.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>position</code></th>
+						<td><p>The position in which the tracks will be added, being 0 the top position.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>playlist</code></th>
+						<td><p>The playlist to manipulate.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token authenticated with the <code>SPTAuthPlaylistModifyPublicScope</code> or <code>SPTAuthPlaylistModifyPrivateScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to a <code>NSError</code> object that will be set if an error occured.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <code>NSURLRequest</code> object</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForSettingTracks:inPlaylist:withAccessToken:error:" title="createRequestForSettingTracks:inPlaylist:withAccessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForSettingTracks:inPlaylist:withAccessToken:error:">+&nbsp;createRequestForSettingTracks:inPlaylist:withAccessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Replace all the tracks in a playlist, overwriting any tracks already in it</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForSettingTracks:(NSArray *)<em>tracks</em> inPlaylist:(NSURL *)<em>playlist</em> withAccessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>The new tracks, as <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a>, <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> or <code>NSURL</code> objects.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>playlist</code></th>
+						<td><p>The playlist to manipulate.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token authenticated with the <code>SPTAuthPlaylistModifyPublicScope</code> or <code>SPTAuthPlaylistModifyPrivateScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to a <code>NSError</code> object that will be set if an error occured.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <code>NSURLRequest</code> object</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForChangingDetails:inPlaylist:withAccessToken:error:" title="createRequestForChangingDetails:inPlaylist:withAccessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForChangingDetails:inPlaylist:withAccessToken:error:">+&nbsp;createRequestForChangingDetails:inPlaylist:withAccessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Change playlist details</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForChangingDetails:(NSDictionary *)<em>data</em> inPlaylist:(NSURL *)<em>playlist</em> withAccessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>data</code></th>
+						<td><p>The data to be changed. Use the key constants to refer to the field to change
+(e.g. <code>SPTPlaylistSnapshotNameKey</code>, <code>SPTPlaylistSnapshotPublicKey</code>). When passing boolean values, use @YES or @NO.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>playlist</code></th>
+						<td><p>The playlist to manipulate.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token authenticated with the <code>SPTAuthPlaylistModifyPublicScope</code> or <code>SPTAuthPlaylistModifyPrivateScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to a <code>NSError</code> object that will be set if an error occured.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <code>NSURLRequest</code> object</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.</p>
+
+<p>Example:
+  NSURLRequest *req = [SPTPlaylistSnapshot createRequestForChangingDetails:@{
+          @&ldquo;name&rdquo;: @&ldquo;New name!&rdquo;,
+          @&ldquo;public&rdquo;: @(false)
+      }
+      inPlaylist:[NSURL URLWithString:@&ldquo;spotify:user:username234:playlist:playlistid123&rdquo;]
+      withAccessToken:@&ldquo;xyz123&rdquo;
+      error:&amp;err];</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForRemovingTracksWithPositions:fromPlaylist:withAccessToken:snapshot:error:" title="createRequestForRemovingTracksWithPositions:fromPlaylist:withAccessToken:snapshot:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForRemovingTracksWithPositions:fromPlaylist:withAccessToken:snapshot:error:">+&nbsp;createRequestForRemovingTracksWithPositions:fromPlaylist:withAccessToken:snapshot:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Remove tracks that are in specific positions from playlist.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForRemovingTracksWithPositions:(NSArray *)<em>tracks</em> fromPlaylist:(NSURL *)<em>playlist</em> withAccessToken:(NSString *)<em>accessToken</em> snapshot:(NSString *)<em>snapshotId</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>An array of dictionaries with 2 keys: <code>track</code> with the track to remove, as <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a>, <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> or <code>NSURL</code> objects, and <code>positions</code> that is an array of integers with the positions the track will be removed from.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>playlist</code></th>
+						<td><p>The playlist to manipulate.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token authenticated with the <code>SPTAuthPlaylistModifyPublicScope</code> or <code>SPTAuthPlaylistModifyPrivateScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>snapshotId</code></th>
+						<td><p>The playlist <a href="#//api/name/snapshotId">snapshotId</a> to manipulate.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to a <code>NSError</code> object that will be set if an error occured.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <code>NSURLRequest</code> object</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.</p>
+
+<p>Example:
+  NSURLRequest *req = [SPTPlaylistSnapshot createRequestForRemovingTracksWithPositions:@[
+          @{
+              @&ldquo;track&rdquo;: [NSURL URLWithString:@&ldquo;spotify:track:a&rdquo;],
+              @&ldquo;positions&rdquo;: @[ @(3) ]
+          },
+          @{
+              @&ldquo;track&rdquo;: [NSURL URLWithString:@&ldquo;spotify:track:b&rdquo;],
+              @&ldquo;positions&rdquo;: @[ @(5), @(6) ]
+          }
+      ]
+      fromPlaylist:[NSURL URLWithString:@&ldquo;spotify:user:username:playlist:playlistid&rdquo;]
+      withAccessToken:@&ldquo;xyz123&rdquo;
+      snapshot:@&ldquo;snapshot!&rdquo;
+      error:&amp;err];</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForRemovingTracks:fromPlaylist:withAccessToken:snapshot:error:" title="createRequestForRemovingTracks:fromPlaylist:withAccessToken:snapshot:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForRemovingTracks:fromPlaylist:withAccessToken:snapshot:error:">+&nbsp;createRequestForRemovingTracks:fromPlaylist:withAccessToken:snapshot:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Remove tracks from playlist.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForRemovingTracks:(NSArray *)<em>tracks</em> fromPlaylist:(NSURL *)<em>playlist</em> withAccessToken:(NSString *)<em>accessToken</em> snapshot:(NSString *)<em>snapshotId</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tracks</code></th>
+						<td><p>An array of <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a>, <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> or <code>NSURL</code> objects.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>playlist</code></th>
+						<td><p>The playlist to manipulate.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token authenticated with the <code>SPTAuthPlaylistModifyPublicScope</code> or <code>SPTAuthPlaylistModifyPrivateScope</code> scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>snapshotId</code></th>
+						<td><p>The playlist <a href="#//api/name/snapshotId">snapshotId</a> to manipulate.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to a <code>NSError</code> object that will be set if an error occured.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <code>NSURLRequest</code> object</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createRequestForPlaylistWithURI:accessToken:error:" title="createRequestForPlaylistWithURI:accessToken:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createRequestForPlaylistWithURI:accessToken:error:">+&nbsp;createRequestForPlaylistWithURI:accessToken:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a request to fetch a single playlist</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSURLRequest *)createRequestForPlaylistWithURI:(NSURL *)<em>uri</em> accessToken:(NSString *)<em>accessToken</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>uri</code></th>
+						<td><p>The playlist to get.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>A valid access token authenticated with the appropriate scope as necessary.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to a <code>NSError</code> object that will be set if an error occured.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <code>NSURLRequest</code> object</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Response parser methods" name="task_Response parser methods"></a>
+						<h2 class="task-title">Response parser methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/playlistSnapshotFromData:withResponse:error:" title="playlistSnapshotFromData:withResponse:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playlistSnapshotFromData:withResponse:error:">+&nbsp;playlistSnapshotFromData:withResponse:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Parse the response from an API call into an <code>SPTPlaylistSnapshot</code> object</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)playlistSnapshotFromData:(NSData *)<em>data</em> withResponse:(NSURLResponse *)<em>response</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>data</code></th>
+						<td><p>The API response data</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>response</code></th>
+						<td><p>The API response object</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to an <code>NSError</code> that will receive the error code if operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The <code>SPTPlaylistSnapshot</code> object</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playlistSnapshotFromDecodedJSON:error:" title="playlistSnapshotFromDecodedJSON:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playlistSnapshotFromDecodedJSON:error:">+&nbsp;playlistSnapshotFromDecodedJSON:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Parse the response from an API call into an <code>SPTPlaylistSnapshot</code> object</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)playlistSnapshotFromDecodedJSON:(id)<em>decodedObject</em> error:(NSError **)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>decodedObject</code></th>
+						<td><p>The decoded JSON object structure</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>An optional pointer to an <code>NSError</code> that will receive the error code if operation failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The <code>SPTPlaylistSnapshot</code> object</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTPlaylistSnapshot.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2016 Spotify AB. All rights reserved. Updated: 2016-06-30</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
