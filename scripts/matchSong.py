@@ -1,3 +1,6 @@
+import numpy as np
+import xml.etree.ElementTree as ET
+
 def matchSong(vec):
     vec = np.ndarray(vec)
 
@@ -13,7 +16,13 @@ def matchSong(vec):
 
 song_IDs []
 
+def gaceNote2SongMatrix():
+    Qs = ET.Element('QUERIES')
+    for (artist,track) in songLsit:
+        q = ET.SubElement(Qs, 'QUERY')
+        
 
+    return SongMatrix
 
 #
 # def compute_distances_no_loops(self, X):
