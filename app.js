@@ -10,6 +10,11 @@ var index = require('./routes/index');
 var receive_text = require('./routes/receive_text');
 // var users = require('./routes/users');
 var app = express();
+// var formData = require('express-form-data');
+//
+// const multipartyOptions = {
+//     autoFiles: true
+// };
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -17,6 +22,15 @@ app.set('view engine', 'pug');
 
 // setting secrets
 app.set('config', config);
+//
+// // parse a data with connect-multiparty.
+// app.use(formData.parse(multipartyOptions));
+// // clear all empty files (size == 0)
+// app.use(formData.format());
+// //
+// app.use(formData.stream());
+// // union body and files
+// app.use(formData.union());
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
