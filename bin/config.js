@@ -1,0 +1,2 @@
+var GOOGLE_API_KEY = "AIzaSyCXY2qCANlVnPrBN2-TG10Ko2fTzlYCdSQ";
+module.exports = GOOGLE_API_KEY;
