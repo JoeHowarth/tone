@@ -15,7 +15,7 @@ def makeMatrix():
         "Sentimental" : (9,9,2),
         "Tender" : (9,1,1),
         "Easygoing" : (5,5,1),
-        "Yearning" : (9,9,9),
+        "Yearning" : (9,5,9),
         "Sophisticated" : (900,900,900),
         "Sensual" : (900,900,900),
         "Cool" :   (900,900,900),
