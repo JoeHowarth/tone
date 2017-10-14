@@ -10,11 +10,11 @@ def matchSong(sent, mag, vol):
     ## 10x / range + 10min/rnage
     s_range = 1
     s_min = -.5
-    sent = 10(sent + s_min)
+    sent = 10*(sent + s_min)
 
     m_range = 1.5
     m_min = -.75
-    mag = 10(mag + m_min)/1.5
+    mag = 10*(mag + m_min)/1.5
 
     v_range = 1700
     v_max   = 2000
@@ -84,9 +84,9 @@ def matchSong(sent, mag, vol):
 #     ("Turning Tables", "Adele"),
 # ]
 
-s = sys.argv[0]
-m = sys.argv[1]
-v = sys.argv[2]
+s = float(sys.argv[1])
+m = float(sys.argv[2])
+v = float(sys.argv[3])
 
 matchSong(s, m, v)
 #
