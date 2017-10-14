@@ -5,8 +5,23 @@ import numpy as np
 import pickle
 import json
 
-def matchSong(vec):
+def matchSong(sent, mag, vol):
     vec = [5,9,9]
+    ## 10x / range + 10min/rnage
+    s_range = 1
+    s_min = -.5
+    sent = 10(sent + s_min)
+
+    m_range = 1.5
+    m_min = -.75
+    mag = 10(mag + m_min)/1.5
+
+    v_range = 1700
+    v_max   = 2000
+    v_min   = 300
+    vol     = 3000 / float(vol)
+
+    vec = np.asarray([sent, mag, vol])
     # vec = shift_vec(vec)
 
     # reader = csv.reader(open("matrix.csv", "rb"), delimiter=",")
@@ -42,11 +57,6 @@ def matchSong(vec):
 
     # return response_dict
 
-def shift_vec(vec):
-    (sent, mag, vol) = vec
-    ## sent in [-2,2] ??
-
-    ## mag in [-2,2]
 
     ## vol in ????
 
@@ -75,7 +85,7 @@ def shift_vec(vec):
 # ]
 
 
-matchSong("s")
+matchSong(s, m, v)
 #
 #
 # if len(sys.argv) > 1:
