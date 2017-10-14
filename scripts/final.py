@@ -31,7 +31,7 @@ def matchSong(sent, mag, vol):
         vol = 1
 
     vec = np.asarray([sent, mag, vol])
-    print(vec)
+    # print(vec)
     # vec = shift_vec(vec)
 
     # reader = csv.reader(open("matrix.csv", "rb"), delimiter=",")
