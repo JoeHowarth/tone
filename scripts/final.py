@@ -9,21 +9,21 @@ def matchSong(sent, mag, vol):
     vec = [5,9,9]
     ## 10x / range + 10min/rnage
     s_range = 2.0
-    s_min = -.5
-    sent = 10*(sent + s_min)/ s_range
+    s_min = -1
+    sent = 10*(sent - s_min)/ s_range
     if sent < 1:
         sent = 1
     elif sent > 9:
         sent = 9
-    
-    m_range = 1.5
-    m_min = -.75
-    mag = 10*(mag + m_min)/1.5
+
+    m_range = float(2)
+    m_min = -1
+    mag = 10*(mag - m_min)/m_range
 
     v_range = 1700
     v_max   = 2500
     v_min   = 300
-    vol     = 3000 / float(vol)
+    vol     = 4000 / float(vol) + 3
 
     if vol > 9:
         vol = 9
@@ -31,6 +31,7 @@ def matchSong(sent, mag, vol):
         vol = 1
 
     vec = np.asarray([sent, mag, vol])
+    print(vec)
     # vec = shift_vec(vec)
 
     # reader = csv.reader(open("matrix.csv", "rb"), delimiter=",")
