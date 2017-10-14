@@ -2,12 +2,15 @@ var express = require('express');
 var request = require('request');
 var router = express.Router();
 var bodyparser = require('body-parser');
+var spawn = require("child_process").spawn;
+
 const Speech = require('@google-cloud/speech');
 const fs = require('fs');
 const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 const ffmpeg = require('fluent-ffmpeg');
 ffmpeg.setFfmpegPath(ffmpegPath);
-const linear16 = require('linear16');
+const input_file = './tmp/input.aac';
+const output_file = './tmp/output.raw';
 
 var config = {
     encoding: 'LINEAR16',
@@ -18,9 +21,10 @@ var config = {
 // POST route for receiving text from front-end
 router.post('/send', function(req, res) {
     var tmp = new Buffer(req.body.toString("binary"), "binary");
-    fs.writeFile('./tmp/input.aac', tmp, {encoding: null});
+    fs.writeFile(input_file, tmp, {encoding: null});
 
-    var command0 = ffmpeg('./tmp/input.aac')
+    // fix frequency based on text
+    var command0 = ffmpeg(input_file)
         .ffprobe(function(err, data) {
             if(err){
                 console.log(err);
@@ -30,20 +34,36 @@ router.post('/send', function(req, res) {
             }
         });
 
-    var command = ffmpeg('./tmp/input.aac')
+    // create file and perform computation
+    var command = ffmpeg(input_file)
         .outputFormat('s16le')
         .audioCodec('pcm_s16le')
-        .save('./tmp/output.raw')
+        .save(output_file)
         .on('end', function(err){
             if (err) {
                 console.log(err);
             }
-            next_steps();
+            res.send(next_steps());
         });
 });
 
 function next_steps() {
-    var to_send = fs.readFileSync('./tmp/output.raw').toString('base64');
+    var text = get_text();
+    var avg_amp = get_amplitude();
+    console.log(amplitude);
+    // var sentiment = get_sentiment();
+    // return matching_song(speech_characteristics);
+}
+
+function get_amplitude() {
+    var process = spawn('python', ['./scripts/volume.py', input_file]);
+    process.stdout.on('data', function(data) {
+       return data;
+    });
+}
+
+function get_text() {
+    var to_send = fs.readFileSync(output_file).toString('base64');
     var transcription;
 
     // audio encoding features
