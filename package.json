@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "pip install -r requirements.txt && node ./bin/www",
-    "debug": "node --inspect ./bin/www"
+    "start": "node --trace-warnings ./bin/www",
+    "debug": "node --trace-warnings --inspect ./bin/www"
   },
   "engines": {
     "node": "8.3.0"

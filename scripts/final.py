@@ -35,9 +35,10 @@ def matchSong(vec):
     vol = str(vec[2])
 
     response_dict = {"title": title, "artist": artist, "song_ID": ID, "vol":vol}
-    # with open('../tmp/result.json', 'w') as fp:
-    print(json.dumps(response_dict))
-    # json.dumps(response_dict)
+    with open('../tmp/result.json', 'w') as fp:
+        print(json.dumps(response_dict))
+        sys.stdout.flush()
+        json.dump(response_dict, fp)
 
     # return response_dict
 

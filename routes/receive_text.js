@@ -2,7 +2,8 @@ var express = require('express');
 var request = require('request');
 var router = express.Router();
 var bodyparser = require('body-parser');
-var spawn = require("child_process").spawn;
+var spawnSync = require("child_process").spawnSync;
+var util = require('util');
 
 const Speech = require('@google-cloud/speech');
 const Language = require('@google-cloud/language');
@@ -25,17 +26,6 @@ router.post('/send', function(req, res) {
     var tmp = new Buffer(req.body.toString("binary"), "binary");
     fs.writeFile(input_file, tmp, {encoding: null});
 
-    // fix frequency based on text
-    // var command0 = ffmpeg(input_file)
-    //     .ffprobe(function(err, data) {
-    //         if(err){
-    //             console.log(err);
-    //         }
-    //         else{
-    //             config.sampleRateHertz = data.streams[0].sample_rate;
-    //         }
-    //     });
-
     // create file and perform computation
     var command = ffmpeg(input_file)
         .outputFormat('s16le')
@@ -45,14 +35,14 @@ router.post('/send', function(req, res) {
             if (err) {
                 console.log(err);
             }
-            console.log(next_steps(map_to_song));
+            next_steps(map_to_song).then((result) => res.send(result));
         });
 });
 
 next_steps = async (map_to_song) => {
     var sentiment = await get_text();
     var avg_amp = await get_amplitude();
-    return map_to_song(sentiment, avg_amp);
+    return await map_to_song(sentiment, avg_amp);
 }
 
 get_text = async () => {
@@ -75,22 +65,27 @@ get_text = async () => {
         projectId: projectId
     });
 
-    speechClient.recognize(request)
-        .then((data) => {
-            const response = data[0];
-            transcription = response.results.map(result =>
-                result.alternatives[0].transcript).join('\n');
-            console.log(`Transcription: ${transcription}`);
-            return get_sentiment(transcription);
-        })
-        .catch((err) => {
-            console.error('ERROR:', err);
-        });
+    const data = await speechClient.recognize(request);
+    const response = data[0];
+    transcription = response.results.map(result =>
+        result.alternatives[0].transcript).join('\n');
+    console.log(`Transcription: ${transcription}`);
+    return await get_sentiment(transcription);
+        // .then((data) => {
+        //     const response = data[0];
+        //     transcription = response.results.map(result =>
+        //         result.alternatives[0].transcript).join('\n');
+        //     console.log(`Transcription: ${transcription}`);
+        //     return get_sentiment(transcription);
+        // })
+        // .catch((err) => {
+        //     console.error('ERROR:', err);
+        // });
 
     // fs.unlink('./tmp/*');
 }
 
-function get_sentiment(text) {
+get_sentiment = async (text) => {
     const language = new Language.LanguageServiceClient();
     const document = {
         content: text,
@@ -98,35 +93,30 @@ function get_sentiment(text) {
     };
 
     // Detects the sentiment of the text
-    language
-        .analyzeSentiment({document: document})
-        .then(results => {
-            const sentiment = results[0].documentSentiment;
-
-            console.log(`Text: ${text}`);
-            console.log(`Sentiment score: ${sentiment.score}`);
-            console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
-        })
-        .catch(err => {
-            console.error('ERROR:', err);
-        });
-}
+    let results = await language.analyzeSentiment({document: document, encodingType: "UTF"});
+    return results[0].documentSentiment;
+        // .then(results => {
+        //     const sentiment = results[0].documentSentiment;
+        //
+        //     console.log(`Text: ${text}`);
+        //     console.log(`Sentiment score: ${sentiment.score}`);
+        //     console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
+        // })
+        // .catch(err => {
+        //     console.error('ERROR:', err);
+        // });
+};
 
 get_amplitude = async () => {
-    var process = spawn('python', ['./scripts/volume.py', input_file]);
-    process.stdout.on('data', function(data) {
-        data = data.toString("utf8");
-        console.log(data);
-        return data;
-    });
-}
+    const { stdout, stderr } = spawnSync('python3', ['./scripts/volume.py', input_file]);
+    return stdout.toString("utf8");
+};
 
-function map_to_song(sentiment, avg_amp) {
-    var process = spawn('python', ['./scripts/final.py', [sentiment.score, sentiment.magnitude, avg_amp]]);
-    process.stdout.on('data', function(data) {
-       data = data.toString("utf8");
-       return data;
-    });
+map_to_song = async (sentiment, avg_amp) => {
+    const { stdout, stderr } = spawnSync('python3', ['./final.py', sentiment.score, sentiment.magnitude, avg_amp],
+        {cwd: "./scripts"});
+    console.log(stderr.toString("utf8"));
+    return stdout.toString("utf8");
 }
 
 module.exports = router;
