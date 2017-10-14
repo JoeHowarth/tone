@@ -4,8 +4,6 @@ var path = require('path'); // working with file and directory paths
 var cookieParser = require('cookie-parser'); 
 var bodyParser = require('body-parser');
 
-var config = require('./bin/config')
-
 var index = require('./routes/index');
 var receive_text = require('./routes/receive_text');
 // var users = require('./routes/users');
@@ -16,7 +14,14 @@ var app = express();
 //     autoFiles: true
 // };
 
+var config= require('./bin/config');
+
+process.env["GOOGLE_API_KEY"] = config[0];
+process.env["GCLOUD_PROJECT"] = config[1];
+process.env["GOOGLE_APPLICATION_CREDENTIALS"] = config[2];
+
 var getRawBody = require('raw-body')
+
 app.use(function (req, res, next) {
     if (req.headers['content-type'] === 'application/octet-stream') {
         getRawBody(req, {
@@ -40,8 +45,6 @@ app.use(function (req, res, next) {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-// setting secrets
-app.set('config', config);
 //
 // // parse a data with connect-multiparty.
 // app.use(formData.parse(multipartyOptions));

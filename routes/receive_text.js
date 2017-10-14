@@ -12,25 +12,33 @@ var config = {
 
 // POST route for receiving text from front-end
 router.post('/send', function(req, res) {
-    res.send(req.body);
-//     // audio encoding features
-//     var audio = {
-//         content: req.body
-//     };
-//     var request = {
-//         audio: audio,
-//         config: config
-//     };
-//
-// // google speech client
-//     const projectId = 'polytest-182204';
-//     const speechClient = Speech({
-//         projectId: projectId
-//     });
-//     request('https://speech.googleapis.com/v1/documents' +
-//         ':analyzeEntities?key=' + app.config, function(error, response, body) {
-//
-//     });
+    // audio encoding features
+    var audio = {
+        content: req.body
+    };
+
+    var request = {
+        audio: audio,
+        config: config
+    };
+
+    // google speech client
+    const projectId = 'polytest-182204';
+    const speechClient = Speech({
+        projectId: projectId
+    });
+
+    speechClient.recognize(request)
+        .then((data) => {
+        console.log(data);
+        const response = data[0];
+        const transcription = response.results.map(result =>
+            result.alternatives[0].transcript).join('\n');
+        console.log(`Transcription: ${transcription}`);
+    })
+    .catch((err) => {
+            console.error('ERROR:', err);
+    });
 });
 
 module.exports = router;
