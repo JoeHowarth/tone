@@ -15,17 +15,23 @@ def matchSong(vec):
     songList = pickle.load(open("songList.txt", "rb"))
     vec = np.asarray(vec)
 
-    print('match_song:', vec, SongMatrix)
+    # print('match_song:', vec, SongMatrix)
     dists = np.sqrt(np.linalg.norm(SongMatrix - vec, axis=1))
-    print("dists",dists)
+    # print("dists",dists)
 
     dist_IDs = zip(dists,songList)
     closest_match = sorted(dist_IDs)[0]
-    songID = closest_match[1]
+    song_ID = closest_match[1]
 
-    response_dict = {"title": song_ID[0], "artist": song_ID[1], "song_ID": song_ID[2], "vol":vec[2]}
+    title = str(song_ID[0])
+    artist = str(song_ID[1])
+    ID = str(song_ID[2])
+    vol = str(vec[2])
+
+    response_dict = {"title": title, "artist": artist, "song_ID": ID, "vol":vol}
     # with open('../tmp/result.json', 'w') as fp:
-    json.dumps(response_dict)
+    print(json.dumps(response_dict))
+    # json.dumps(response_dict)
 
     # return response_dict
 
@@ -71,4 +77,4 @@ if len(sys.argv) > 1:
     z = int(sys.argv[3])
     [x,y,z]
     a = matchSong([x,y,z])
-    print(a)
+    # print(a)
