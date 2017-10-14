@@ -4,7 +4,8 @@ var path = require('path'); // working with file and directory paths
 var cookieParser = require('cookie-parser'); 
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index'); 
+var index = require('./routes/index');
+var receive_text = require('./routes/receive_text');
 // var users = require('./routes/users');
 var app = express();
 
@@ -19,8 +20,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', index);
 // app.use('/users', users);
+app.use('/', receive_text);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
