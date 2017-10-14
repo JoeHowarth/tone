@@ -1,4 +1,6 @@
 import pickle
+import csv
+
 
 songList = [
 ("Holy Ghost","A$AP Rocky","6AHNkRbVzkh95xilnYzDT7"),
@@ -781,3 +783,7 @@ songList = [
 ]
 
 pickle.dump(songList, open("songList.txt", "wb"))
+
+with open("songList.csv", 'wb') as myfile:
+    wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+    wr.writerow(songList)
