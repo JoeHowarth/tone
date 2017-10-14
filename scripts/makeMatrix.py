@@ -10,33 +10,61 @@ userID = '43445971141100181-8D808B2A0047D17084D09FF1D5F6BA06' # Get a User ID fr
 def makeMatrix():
     # (title, artist)
     mood2num = {
-        "Peaceful" : (5, 2, 1),
-        "Romantic" : (7, 5, 4),
-        "Sentimental" : (6, 3, 2),
-        "Tender" : (6, 4, 3),
-        "Easygoing" : (8, 3, 3),
-        "Yearning" : (4, 7, 4),
-        "Sophisticated" : (7,7,4),
-        "Sensual" : (8,9,3),
-        "Cool" :   (6, 3, 4),
-        "Gritty" :  (3, 8, 7),
-        "Somber" :  (2, 5, 3),
-        "Melancholy" :   (1, 6, 3),
-        "Serious" :  (5, 5, 5),
-        "Brooding" :   (2, 9, 4),
-        "Fiery" :   (5, 9, 7),
-        "Urgent" :  (4, 8, 6),
-        "Defiant" :  (3, 6, 5),
-        "Aggressive" :  (3, 9,9),
-        "Rowdy" :  (6, 8, 9),
-        "Excited" :   (9,9,8),
-        "Energizing" :   (8,7,8),
-        "Empowering" :   (7,7,6),
-        "Stirring" :   (5,5,6),
-        "Lively" :   (7,5,7),
-        "Upbeat" :   (8,4,6),
-        "Other" :   (5,5,5),
+        "Peaceful" : (5,1,1),
+        "Romantic" : (9,9,1),
+        "Sentimental" : (9,9,2),
+        "Tender" : (9,1,1),
+        "Easygoing" : (9,1,1),
+        "Yearning" : (9,9,9),
+        "Sophisticated" : (900,900,900),
+        "Sensual" : (900,900,900),
+        "Cool" :   (900,900,900),
+        "Gritty" :  (900,900,900),
+        "Somber" :  (1,1,1),
+        "Melancholy" :   (1,1,1),
+        "Serious" :  (900,900,900),
+        "Brooding" :   (900,900,900),
+        "Fiery" :   (900,900,900),
+        "Urgent" :  (900,900,900),
+        "Defiant" :  (1,9,8),
+        "Aggressive" :  (1,9,9),
+        "Rowdy" :   (5,9,8),
+        "Excited" :   (9,9,9),
+        "Energizing" :   (9,9,9),
+        "Empowering" :   (900,900,900),
+        "Stirring" :   (900,900,900),
+        "Lively" :   (9,9,9),
+        "Upbeat" :   (9,9,9),
+        "Other" :   (100000,900,900)
     }
+        # mood2num = {
+        #     "Peaceful" : (5, 2, 1),
+        #     "Romantic" : (7, 5, 4),
+        #     "Sentimental" : (6, 3, 2),
+        #     "Tender" : (6, 4, 3),
+        #     "Easygoing" : (8, 3, 3),
+        #     "Yearning" : (4, 7, 4),
+        #     "Sophisticated" : (7,7,4),
+        #     "Sensual" : (8,9,3),
+        #     "Cool" :   (6, 3, 4),
+        #     "Gritty" :  (3, 8, 7),
+        #     "Somber" :  (2, 5, 3),
+        #     "Melancholy" :   (1, 6, 3),
+        #     "Serious" :  (5, 5, 5),
+        #     "Brooding" :   (2, 9, 4),
+        #     "Fiery" :   (5, 9, 7),
+        #     "Urgent" :  (4, 8, 6),
+        #     "Defiant" :  (3, 6, 5),
+        #     "Aggressive" :  (3, 9,9),
+        #     "Rowdy" :  (6, 8, 9),
+        #     "Excited" :   (9,9,8),
+        #     "Energizing" :   (8,7,8),
+        #     "Empowering" :   (7,7,6),
+        #     "Stirring" :   (5,5,6),
+        #     "Lively" :   (7,5,7),
+        #     "Upbeat" :   (8,4,6),
+        #     "Other" :   (5,5,5),
+        # }
 
     gen2num = {
         "Latin" : (5, 4, 8)   ,
@@ -77,28 +105,31 @@ def makeMatrix():
     vec_list = []
     for (title, artist, _ID) in songList:
         result = pygn.search(clientID=clientID, userID=userID, artist=artist, track=title)
-        moods = result["mood"]
-        genre = result['genre']
-        print(genre)
-        # print(len(moods))
-
-        if len(moods) > 1:
-            mood = moods["1"]["TEXT"]
+        if result.get("mood") == None or result == None:
+            print(title)
         else:
-            mood = "Other"
-        if len(genre) > 1:
-            genre = genre["1"]["TEXT"]
+            moods = result["mood"]
+            genre = result['genre']
             print(genre)
-        else:
-            genre = "Other"
+            # print(len(moods))
 
-        m_vec = mood2num[mood]
-        g_vec = gen2num[genre]
-        combined  = m_vec + np.multiply([0.3,0.5,1], g_vec)
-        combined = np.divide(combined, [1.3,1.5,2])
+            if len(moods) > 1:
+                mood = moods["1"]["TEXT"]
+            else:
+                mood = "Other"
+            if len(genre) > 1:
+                genre = genre["1"]["TEXT"]
+                print(genre)
+            else:
+                genre = "Other"
 
-        print(combined)
-        vec_list.append(combined)
+            m_vec = mood2num[mood]
+            g_vec = gen2num[genre]
+            combined  = m_vec + np.multiply([0.3,0.5,1], g_vec)
+            combined = np.divide(combined, [1.3,1.5,2])
+
+            print(combined)
+            vec_list.append(combined)
 
         # print(mood2num[mood])
 

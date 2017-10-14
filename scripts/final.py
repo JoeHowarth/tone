@@ -8,18 +8,27 @@ import json
 def matchSong(sent, mag, vol):
     vec = [5,9,9]
     ## 10x / range + 10min/rnage
-    s_range = 1
+    s_range = 2.0
     s_min = -.5
-    sent = 10*(sent + s_min)
-
+    sent = 10*(sent + s_min)/ s_range
+    if sent < 1:
+        sent = 1
+    elif sent > 9:
+        sent = 9
+    
     m_range = 1.5
     m_min = -.75
     mag = 10*(mag + m_min)/1.5
 
     v_range = 1700
-    v_max   = 2000
+    v_max   = 2500
     v_min   = 300
     vol     = 3000 / float(vol)
+
+    if vol > 9:
+        vol = 9
+    elif vol < 1:
+        vol = 1
 
     vec = np.asarray([sent, mag, vol])
     # vec = shift_vec(vec)
