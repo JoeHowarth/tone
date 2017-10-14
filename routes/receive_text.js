@@ -20,6 +20,16 @@ router.post('/send', function(req, res) {
     var tmp = new Buffer(req.body.toString("binary"), "binary");
     fs.writeFile('./tmp/input.aac', tmp, {encoding: null});
 
+    var command0 = ffmpeg('./tmp/input.aac')
+        .ffprobe(function(err, data) {
+            if(err){
+                console.log(err);
+            }
+            else{
+                config.sampleRateHertz = data.streams[0].sample_rate;
+            }
+        });
+
     var command = ffmpeg('./tmp/input.aac')
         .outputFormat('s16le')
         .audioCodec('pcm_s16le')
@@ -28,7 +38,7 @@ router.post('/send', function(req, res) {
             if (err) {
                 console.log(err);
             }
-            res.send(next_steps());
+            next_steps();
         });
 });
 
@@ -54,7 +64,6 @@ function next_steps() {
 
     speechClient.recognize(request)
         .then((data) => {
-            console.log(data);
             const response = data[0];
             transcription = response.results.map(result =>
                 result.alternatives[0].transcript).join('\n');
@@ -64,7 +73,6 @@ function next_steps() {
             console.error('ERROR:', err);
         });
 
-    return transcription;
     // fs.unlink('./tmp/*');
 }
 
