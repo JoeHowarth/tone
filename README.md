@@ -7,6 +7,6 @@
 ### Tech Stack:
 
 ### Designs: (By Astrid Weng)
-[!(https://github.com/JoeHowarth/tone/blob/master/P2.jpg)]
-[!(https://github.com/JoeHowarth/tone/blob/master/p1.jpg)]
+![IMAGE ALT TEXT HERE](https://github.com/JoeHowarth/tone/blob/master/P2.jpg)
+![IMAGE ALT TEXT HERE](https://github.com/JoeHowarth/tone/blob/master/p1.jpg)
 
