@@ -8,5 +8,5 @@
 
 ### Designs: (By Astrid Weng)
 [![IMAGE ALT TEXT HERE](https://github.com/JoeHowarth/tone/blob/master/P2.jpg)]
-[![IMAGE ALT TEXT HERE](https://github.com/JoeHowarth/tone/blob/master/P1.jpg)]
+[![IMAGE ALT TEXT HERE](https://github.com/JoeHowarth/tone/blob/master/p1.jpg)]
 
