@@ -1,0 +1,36 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node --trace-warnings ./bin/www",
+    "debug": "node --trace-warnings --inspect ./bin/www"
+  },
+  "engines": {
+    "node": "8.3.0"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.0.13",
+    "@google-cloud/language": "^0.13.0",
+    "@google-cloud/speech": "^0.10.3",
+    "body-parser": "~1.18.2",
+    "child_process": "^1.0.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.15.5",
+    "express-form-data": "^2.0.1",
+    "fluent-ffmpeg": "^2.1.2",
+    "fs": "0.0.1-security",
+    "googleapis": "^22.2.0",
+    "jquery": "^3.2.1",
+    "jsdom": "^11.3.0",
+    "linear16": "^1.0.1",
+    "morgan": "~1.9.0",
+    "pug": "2.0.0-beta11",
+    "raw-body": "^2.3.2",
+    "request": "^2.83.0",
+    "request-stats": "^3.0.0",
+    "serve-favicon": "~2.4.5",
+    "xmlhttprequest": "^1.8.0"
+  }
+}

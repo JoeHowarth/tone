@@ -51,3 +51,10 @@ buck-out/
 */fastlane/report.xml
 */fastlane/Preview.html
 */fastlane/screenshots
+=======
+.DS_Store
+.idea
+/node_modules
+npm-debug.log
+/*.env
+
