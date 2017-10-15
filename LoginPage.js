@@ -12,11 +12,13 @@ import {
     View,
     NativeModules,
     TouchableHighlight,
-    StatusBar
+    StatusBar,
+    Image,
+    Dimensions,
 } from 'react-native';
 
 const SpotifyAuth = NativeModules.SpotifyAuth;
-
+const {width, height} = Dimensions.get('window');
 
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' +
@@ -38,37 +40,22 @@ export default class Login extends Component<{}> {
     test = () => {
         SpotifyAuth.setClientID('de293e4d607845e8afac9bdaf4a07f4c','tone://callback',['streaming'],(error)=>{
             if(!error){
-                // alert('heya');
                 this.props.navigation.navigate('Music');
-
             } else {
-                alert('FUCKKKK');
                 console.log('error:',error);
             }
         });
     };
 
-    // play = () => {
-    //     SpotifyAuth.playURIs(["spotify:track:6LGabqtvan3SGYcL4guT0o", "spotify:track:58s6EuEYJdlb0kO7awm3Vp"], {trackIndex :0, startTime:0},(error)=>{console.log('error',error)});
-    //
-    // };
+
     render() {
         return (
             <View style={styles.container}>
-                <StatusBar hidden={true}/>
-                <Text style={styles.welcome}>
-                    Welcome to React Native!
-                </Text>
-                <Text style={styles.instructions}>
-                    To get started, edit App.js
-                </Text>
-                <Text style={styles.instructions}>
-                    {instructions}
-                </Text>
                 <TouchableHighlight onPress={this.test}>
-                    <Text>CLICK ME</Text>
+                <Image source={require('./background.jpg')} resizeMode="cover"
+                       style={{height: height, width: width + 2}}/>
                 </TouchableHighlight>
-
+                <StatusBar hidden={true}/>
             </View>
         );
     }

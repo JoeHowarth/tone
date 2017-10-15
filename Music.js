@@ -12,13 +12,17 @@ import {
     View,
     NativeModules,
     TouchableHighlight,
-    PermissionsAndroid
+    PermissionsAndroid,
+    Image,
+    Dimensions
 } from 'react-native';
 
 const SpotifyAuth = NativeModules.SpotifyAuth;
 import {AudioRecorder, AudioUtils} from 'react-native-audio';
 import Sound from 'react-native-sound';
 import RNFetchBlob from 'react-native-fetch-blob';
+const {width, height} = Dimensions.get('window');
+
 
 export default class Music extends Component<{}> {
     static navigationOptions = {
@@ -30,11 +34,12 @@ export default class Music extends Component<{}> {
         super(props);
         this.state = {
             currentTime: 0.0,
+            buffer: false,
             recording: false,
             stoppedRecording: false,
             finished: false,
-            currentSongPlaying: "",
-            currentVolume: 5,
+            currentSongPlaying: "3S4px9f4lceWdKf0gWciFu",
+            currentVolume: 0.5,
             audioPath: AudioUtils.DocumentDirectoryPath + '/analysis.aac',
             hasPermission: undefined,
         }
@@ -59,6 +64,19 @@ export default class Music extends Component<{}> {
                 }
             };
         });
+
+        setTimeout(() => {
+            this.getRecording();
+        }, 1000);
+
+
+        setTimeout(() => {
+            SpotifyAuth.playURIs(["spotify:track:6vECYJHxYmm3Ydt3fF01pE", "spotify:track:58s6EuEYJdlb0kO7awm3Vp"], {trackIndex :0, startTime:0},(error)=>{console.log('error',error)});
+        }, 1000);
+
+
+
+        // setInterval(this.getData, 5000);
     };
 
     _finishRecording(didSucceed, filePath) {
@@ -79,7 +97,11 @@ export default class Music extends Component<{}> {
             // Or simply wrap the file path with RNFetchBlob.wrap().
         }, RNFetchBlob.wrap(this.state.audioPath))
             .then((res) => {
-
+                alert(res.data);
+                let data = JSON.parse(res.data);
+                let id = data['song_ID'];
+                // SpotifyModule.setVolume(0.8,(error)=>{console.log(error);});
+                SpotifyAuth.playURIs(["spotify:track:" + id], {trackIndex :0, startTime:20},(error)=>{console.log('error',error)});
             })
             .catch((err) => {
                 // error handling ..
@@ -120,6 +142,28 @@ export default class Music extends Component<{}> {
             AudioEncodingBitRate: 32000
         });
     }
+
+    decreaseVolume = () => {
+            SpotifyModule.setVolume(0.8,(error)=>{console.log(error);});
+    };
+
+    getData = async() => {
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = (e) => {
+            if (request.readyState !== 4) {
+                return;
+            }
+
+            if (request.status === 200) {
+                alert('success', request.responseText);
+            } else {
+                console.warn('error');
+            }
+        };
+
+        request.open('GET', 'https://mywebsite.com/endpoint/');
+        request.send();
+    };
 
     _checkPermission() {
         if (Platform.OS !== 'android') {
@@ -164,11 +208,19 @@ export default class Music extends Component<{}> {
     }
 
     getRecording = async() => {
+        this._record();
 
+        setTimeout(() => {
+            // Send data out
+            this._play();
+            setTimeout(() => {
+                this.getRecording();
+            }, 2000);
+        }, 20000);
     };
 
     play = () => {
-        SpotifyAuth.playURIs(["spotify:track:6LGabqtvan3SGYcL4guT0o", "spotify:track:58s6EuEYJdlb0kO7awm3Vp"], {trackIndex :0, startTime:0},(error)=>{console.log('error',error)});
+        SpotifyAuth.playURIs(["spotify:track:6LGabqtvan3SGYcL4guT0o", "spotify:track:58s6EuEYJdlb0kO7awm3Vp"], {trackIndex :0, startTime:30.0},(error)=>{console.log('error',error)});
 
     };
 
@@ -179,16 +231,8 @@ export default class Music extends Component<{}> {
     render() {
         return (
             <View style={styles.container}>
-                <TouchableHighlight onPress={this.play}>
-                <Text>Play</Text>
-                </TouchableHighlight>
-                <TouchableHighlight onPress={this._play}>
-                    <Text>Play2</Text>
-                </TouchableHighlight>
-                <TouchableHighlight onPress={this.record}>
-                    <Text>red</Text>
-                </TouchableHighlight>
-
+                    <Image source={require('./bg2.jpg')} resizeMode="cover"
+                           style={{height: height, width: width + 2}}/>
             </View>
         );
     }
